@@ -3,5 +3,41 @@ input.form-control {
 }
 
 body {
+    margin-top: 30px;
     padding-top: 36px;
+}
+
+.navbar-custom{
+    background: dodgerblue;
+    font-style: italic;
+    color: black;
+
+}
+.navbar-brand{
+    color: white;
+}
+
+.navbar-header{
+    width:100%;
+}
+
+#profilehead{
+    color: white;
+}
+.glyphicon{
+    color: white;
+}
+
+.lbl-glyphicon {
+    margin-left: 15px;
+    color: dodgerblue;
+}
+
+.lbl-glyphicon .glyphicon{
+    color: dodgerblue;
+}
+
+.reqd-padding{
+    padding:20px;
+    padding-left: 0px;
 }
