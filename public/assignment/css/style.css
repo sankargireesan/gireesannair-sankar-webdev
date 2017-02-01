@@ -1,0 +1,72 @@
+input.form-control {
+    margin-bottom: 5px;
+}
+
+.navbar-default, .navbar-default .navbar-brand, .navbar-default a{
+    background-color: black;
+    color:whitesmoke;
+}
+
+body {
+/*overflow: hidden;*/
+    padding-top: 60px;
+    padding-bottom: 30px;
+}
+
+.sgn-required-padding{
+    padding: 16px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.wbdv-no-left-margin {
+margin-left: 0;
+}
+.wbdv-no-right-margin {
+margin-right: 0;
+}
+
+
+.wbdv-left-pane {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    margin-top: 55px;
+    margin-bottom: 50px;
+    padding-top: 15px;
+    overflow: auto;
+    border-right: groove;
+}
+
+.wbdv-right-pane {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin-bottom: 52px;
+    margin-top: 60px;
+    padding-left: 15px;
+    padding-right: 15px;
+    overflow-y: auto;
+}
+
+.sgn-bottom-padding{
+    padding-bottom: 40px;
+}
+
+.sgn-required-top-padding{
+    padding-top: 20px;
+}
+.navbar-brand .pull-left{
+    padding-left: 0px;
+}
+
+.sgn-no-left-padding{
+    padding-left: 0px;
+}
+
+.sgn-custom-font{
+    font-size: 17px;
+}

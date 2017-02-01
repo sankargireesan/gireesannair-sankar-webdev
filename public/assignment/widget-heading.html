@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Widget Heading</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+
+</head>
+
+<body>
+
+
+    <nav class="navbar-default navbar-fixed-top container-fluid ">
+
+        <p class="navbar-brand pull-left sgn-no-left-padding">
+            <a href="widget-list.html" class="glyphicon glyphicon-chevron-left"></a>
+            <span>Widget Edit</span>
+        </p>
+        <p class="navbar-brand pull-right">
+            <a href="widget-list.html" class="glyphicon glyphicon-ok"></a>
+        </p>
+
+    </nav>
+
+
+    <div class="container-fluid sgn-required-padding sgn-bottom-padding">
+        <label for="name">Name</label>
+        <input id="name" type="text"
+               class="form-control"
+               placeholder="Page Name"/>
+
+        <label for="text">Text</label>
+        <input id="text" type="text"
+               class="form-control"
+               placeholder="Widget Text"/>
+
+        <label for="size">Size</label>
+        <input class="form-control" min="0" id="size" type="number">
+
+
+        <label for="delete-button"></label>
+        <a id="delete-button" class="btn btn-danger btn-block"
+           href="widget-list.html.html">Delete</a>
+
+    </div>
+
+
+    <nav class="navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <p class="navbar-brand pull-right">
+                <a href="profile.html">
+                    <span class="glyphicon glyphicon-user"></span></a>
+            </p>
+        </div>
+    </nav>
+
+
+</body>
+</html>
