@@ -1,86 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="WebAppMaker">
 <head>
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Assignment Home Page</title>
+
+
+    <!--Bootstrap & Css-->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/style.css" rel="stylesheet"/>
+
+
+    <!--Angular-->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.min.js"></script>
+
+
+
+    <script src="app.js"></script>
+    <script src="config.js"></script>
+
+
+    <!--Controllers-->
+    <script src="views/user/controllers/login.controller.client.js"></script>
+    <script src="views/user/controllers/profile.controller.client.js"></script>
+
+
+
+    <!--Services-->
+    <script src="services/user.service.client.js"></script>
+    <script src="services/page.service.client.js"></script>
+    <script src="services/website.service.client.js"></script>
+    <script src="services/widget.service.client.js"></script>
+
 </head>
 <body>
-
-    <nav class="navbar-default navbar-fixed-top">
-
-            <div class="navbar-brand">Assignment</div>
-    </nav>
-
-
-    <div class="sgn-required-padding">
-        <a href="login.html">Login Page</a>
-    </div>
-
-
-    <div class="sgn-required-padding">
-        <a href="register.html">Register</a>
-    </div>
-
-    <div class="sgn-required-padding">
-        <a href="profile.html">Profile</a>
-    </div>
-
-    <div class="sgn-required-padding">
-        <a href="page-edit.html">Page Edit</a>
-    </div>
-
-
-    <div class="sgn-required-padding">
-        <a href="page-list.html">Page List</a>
-    </div>
-
-    <div class="sgn-required-padding">
-        <a href="page-new.html">Page New</a>
-    </div>
-
-
-    <div class="sgn-required-padding">
-        <a href="website-edit.html">Edit Website</a>
-    </div>
-
-    <div class="sgn-required-padding">
-        <a href="website-list.html">Website List</a>
-    </div>
-
-
-    <div class="sgn-required-padding">
-        <a href="website-new.html">New Website</a>
-    </div>
-
-    <div class="sgn-required-padding">
-        <a href="widget-chooser.html">Widget Chooser</a>
-    </div>
-
-
-    <div class="sgn-required-padding">
-        <a href="widget-heading.html">Widget Heading</a>
-    </div>
-
-    <div class="sgn-required-padding">
-        <a href="widget-image.html">Widget Image</a>
-    </div>
-
-
-    <div class="sgn-required-padding">
-        <a href="widget-list.html">Widget List</a>
-    </div>
-
-
-    <div class="sgn-required-padding">
-        <a href="widget-youtube.html">Youtube Widget</a>
-    </div>
-
-
-
-
+<div ng-view></div>
 
 </body>
 </html>
