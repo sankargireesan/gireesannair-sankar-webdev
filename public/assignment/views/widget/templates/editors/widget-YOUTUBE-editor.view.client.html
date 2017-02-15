@@ -1,0 +1,24 @@
+<div>
+
+    <label for="name">Name</label>
+    <input id="name" type="text"
+           class="form-control"
+           placeholder="Widget Name"/>
+
+    <label for="text">Text</label>
+    <input id="text" type="text"
+           class="form-control"
+           placeholder="Widget Text"/>
+
+    <label for="url">URL</label>
+    <input ng-model="model.widget.url"
+           type="url" id="url"
+           class="form-control"
+           placeholder="youtube url">
+
+    <label for="width">Width</label>
+    <input ng-model="model.widget.width"
+           class="form-control"
+           min="0" id="width">
+
+</div>

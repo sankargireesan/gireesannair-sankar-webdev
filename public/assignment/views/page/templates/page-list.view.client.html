@@ -22,52 +22,31 @@
 
 </nav>
 
-<div class=" container-fluid sgn-required-top-padding">
-    <p class="form-control">
-        <a href="../../views/widget/templates/widget-list.html" for="BlogPost">Blog Post</a>
+<div class="container-fluid">
 
-        <a class=" pull-right"  id="BlogPost" href="page-edit.view.client.html" >
-            <span  class="glyphicon glyphicon-cog "></span></a>
-    </p>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-xs-12">
+                    Name
+                    <span class="glyphicon glyphicon-triangle-top"></span>
+                </div>
+            </div>
+        </li>
+        <li ng-repeat="page in model.pages" class="list-group-item">
+            <div class="row">
+                <div class="col-xs-10">
+                    {{page.name}}
+                </div>
+                <div class="col-xs-2">
+                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}">
+                        <span class="glyphicon glyphicon-cog pull-right"></span>
+                    </a>
+                </div>
+            </div>
+        </li>
+    </ul>
 </div>
-
-
-<div class=" container-fluid ">
-    <p class="form-control">
-        <a href="../../views/widget/templates/widget-list.html" for="Blog">Blog</a>
-
-        <a class=" pull-right"  id="Blog" href="page-edit.view.client.html" >
-            <span  class="glyphicon glyphicon-cog "></span></a>
-    </p>
-</div>
-
-<div class=" container-fluid ">
-    <p class="form-control">
-        <a href="../../views/widget/templates/widget-list.html" for="Home">Home</a>
-
-        <a class=" pull-right"  id="Home" href="page-edit.view.client.html" >
-            <span  class="glyphicon glyphicon-cog "></span></a>
-    </p>
-</div>
-
-<div class=" container-fluid ">
-    <p class="form-control">
-        <a href="../../views/widget/templates/widget-list.html" for="About">About</a>
-
-        <a class=" pull-right"  id="About" href="page-edit.view.client.html" >
-            <span  class="glyphicon glyphicon-cog "></span></a>
-    </p>
-</div>
-
-<div class=" container-fluid ">
-    <p class="form-control">
-        <a href="../../views/widget/templates/widget-list.html" for="ContactUs">Contact Us</a>
-
-        <a class=" pull-right"  id="ContactUs" href="page-edit.view.client.html" >
-            <span  class="glyphicon glyphicon-cog "></span></a>
-    </p>
-</div>
-
 
 
 <nav class="navbar-default navbar-fixed-bottom">

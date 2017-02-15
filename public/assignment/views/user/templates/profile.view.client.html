@@ -4,7 +4,7 @@
 
         <div class="col-xs-2">
             <p class="navbar-text pull-right">
-                <a href="#">
+                <a href="#/user/{{model.user._id}}">
                     <span class="glyphicon glyphicon-ok"></span>
                 </a>
             </p>
@@ -24,22 +24,37 @@
 
 
     <form>
+
         <div class="form-group">
             <label for="username">Username</label>
-            <input ng-model="model.user.username" type="text" class="form-control" id="username" placeholder="Username">
+            <input ng-model="model.user.username"
+                   type="text" class="form-control"
+                   id="username" placeholder="Username">
         </div>
+
+
         <div class="form-group">
             <label for="email">Email address</label>
-            <input type="email" class="form-control" id="email" placeholder="your_email@domain.com">
+            <input ng-model="model.user.email"
+                   type="email" class="form-control"
+                   id="email" placeholder="your_email@domain.com">
         </div>
+
+
         <div class="form-group">
             <label for="first-name">First Name</label>
-            <input ng-model="model.user.firstName" type="text" class="form-control" id="first-name" placeholder="First Name">
+            <input ng-model="model.user.firstName"
+                   type="text" class="form-control"
+                   id="first-name" placeholder="First Name">
         </div>
+
         <div class="form-group">
             <label for="last-name">Last Name</label>
-            <input ng-model="model.user.lastName" type="text" class="form-control" id="last-name" placeholder="Last Name">
+            <input ng-model="model.user.lastName"
+                   type="text" class="form-control"
+                   id="last-name" placeholder="Last Name">
         </div>
+
     </form>
 
     <a class="btn btn-info btn-block"
@@ -61,7 +76,9 @@
 <nav class="navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <p class="navbar-brand pull-right">
-            <span class="glyphicon glyphicon-user"></span>
+            <a href="#/user/{{model.user._id}}">
+                <span class="glyphicon glyphicon-user"></span>
+            </a>
         </p>
     </div>
 </nav>

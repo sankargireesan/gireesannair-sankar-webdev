@@ -19,14 +19,21 @@
 
 <div class="container-fluid sgn-required-padding" >
     <label for="name">Name</label>
-    <input id="name" type="text"
+    <input ng-model="page.name"
+           id="name" type="text"
            class="form-control"
            placeholder="Page Name"/>
 
-    <label for="title">Title</label>
-    <input id="title" type="text"
+    <label for="description">Title</label>
+    <input ng-model="page.description"
+           id="description" type="text"
            class="form-control"
            placeholder="Page Title"/>
+
+    <a ng-click="model.createPage(page)" class="btn btn-primary btn-block">
+        Create
+    </a>
+
 </div>
 
 

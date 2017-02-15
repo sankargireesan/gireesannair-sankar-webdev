@@ -24,13 +24,14 @@
         }
 
         function findPageByWebsiteId(websiteId){
+            var pagelist = [];
             for(var p in pages) {
                 var page = pages[p];
                 if(page.websiteId === websiteId){
-                    return angular.copy(page);
+                    pagelist.push(page);
                 }
             }
-            return null;
+            return pagelist;
         }
 
         function findPageById(pageId) {
@@ -62,6 +63,7 @@
             for(var p in pages) {
                 if(pages[p]._id === pageId) {
                     pages.splice(p, 1);
+                    return;
                 }
             }
         }

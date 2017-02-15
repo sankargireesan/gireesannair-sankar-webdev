@@ -15,19 +15,38 @@
 
 
 <div class="container-fluid sgn-required-padding">
+
+
+    <div  ng-show="model.error" class="alert alert-danger">
+        {{model.error}}
+    </div>
+
+    <div ng-show="model.success" class="alert alert-success" >
+        {{model.success}}
+    </div>
+
+
+
     <label for="name">Name</label>
-    <input id="name" type="text"
+    <input ng-model="model.page.name"
+           id="name" type="text"
            class="form-control"
            placeholder="Page Name"/>
 
     <label for="title">Title</label>
-    <input id="title" type="text"
+    <input ng-model="model.page.description"
+           id="title" type="text"
            class="form-control"
            placeholder="Page Title"/>
 
-    <label for="delete-button"></label>
-    <a id="delete-button" class="btn btn-danger btn-block"
-       href="page-list.view.client.html">Delete</a>
+
+    <a ng-click="model.updatePage(model.page)" class="btn btn-success  btn-block">
+        Update
+    </a>
+
+    <a ng-click="model.deletePage()" class="btn btn-danger btn-block">
+        Delete
+    </a>
 
 </div>
 

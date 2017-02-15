@@ -1,0 +1,45 @@
+<nav class="navbar-default navbar-fixed-top container-fluid ">
+
+    <p class="navbar-brand pull-left sgn-no-left-padding">
+        <a href="widget-list.html" class="glyphicon glyphicon-chevron-left"></a>
+        <span>Widget Edit</span>
+    </p>
+    <p class="navbar-brand pull-right">
+        <a href="widget-list.html" class="glyphicon glyphicon-ok"></a>
+    </p>
+
+</nav>
+
+
+<div class="container-fluid sgn-required-padding sgn-bottom-padding">
+
+    <div  ng-show="model.error" class="alert alert-danger">
+        {{model.error}}
+    </div>
+
+    <div ng-show="model.success" class="alert alert-success" >
+        {{model.success}}
+    </div>
+
+    <div class="sgn-required-bottom-margin" ng-include="model.getEditorTemplateUrl(model.widget.widgetType)"></div>
+
+    <a ng-click="model.updateWidget(model.widget)"
+       class="btn btn-success  btn-block">
+        Update
+    </a>
+
+    <a ng-click="model.deleteWidget()"
+       class="btn btn-danger btn-block">
+        Delete
+    </a>
+
+</div>
+
+<nav class="navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <p class="navbar-brand pull-right">
+            <a href="../../user/templates/profile.view.client.html">
+                <span class="glyphicon glyphicon-user"></span></a>
+        </p>
+    </div>
+</nav>

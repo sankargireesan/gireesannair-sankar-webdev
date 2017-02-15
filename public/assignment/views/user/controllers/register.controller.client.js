@@ -1,7 +1,7 @@
 (function(){
     angular
         .module("WebAppMaker")
-        .controller("registerController", registerController);
+        .controller("RegisterController", registerController);
 
     function registerController($location, UserService) {
         var vm = this;

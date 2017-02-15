@@ -17,6 +17,16 @@ body {
     padding: 16px;
 }
 
+.sgn-required-bottom-margin{
+    margin-bottom: 5px;
+}
+
+
+.sgn-required-top-margin{
+    margin-top: 5px;
+}
+
+
 a:hover {
     text-decoration: none;
 }
@@ -87,3 +97,4 @@ margin-right: 0;
 .sgn-toolbar:hover{
     opacity: .8;
 }
+

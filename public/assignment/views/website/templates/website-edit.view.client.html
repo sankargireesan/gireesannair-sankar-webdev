@@ -3,21 +3,20 @@
 
         <div class="col-sm-4">
             <div class="navbar-brand pull-left wbdv-no-left-margin ">
-                <a href="website-list.view.client.html">
+                <a href="#/user/{{model.userId}}/website">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
             </div>
 
 
             <div class="hidden-xs  navbar-brand">
-
-                Websites
+                  Websites
             </div>
 
 
             <div class=" hidden-xs">
                 <div class="navbar-brand pull-right">
-                    <a href="website-new.view.client.html">
+                    <a href="#/user/{{model.userId}}/website/new">
                         <span class="glyphicon glyphicon-plus"></span>
                     </a>
                 </div>
@@ -38,12 +37,13 @@
 
                 <div class="col-2">
                     <div class="navbar-brand pull-right ">
-                        <a href="website-list.view.client.html">
+                        <a ng-click="model.updateWebsite(model.website)">
                             <span class="glyphicon glyphicon-ok"></span>
                         </a>
                     </div>
 
                 </div>
+
             </div>
         </div>
 
@@ -60,7 +60,7 @@
                         <span class="glyphicon glyphicon-triangle-top"></span>
                     </div>
                     <div class="col-xs-2">
-                        <a href="website-new.html" class="pull-right">
+                        <a href="#/user/{{model.userId}}/website/new" class="pull-right">
                             <span class="glyphicon glyphicon-plus"></span>
                         </a>
                     </div>
@@ -111,11 +111,13 @@
     </div>
 </div>
 
+
 <nav class="navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <p class="navbar-brand pull-right">
-            <a href="../../user/templates/profile.view.client.html">
-                <span class="glyphicon glyphicon-user"></span></a>
+            <a href="#/user/{{model.userId}}">
+                <span class="glyphicon glyphicon-user"></span>
+            </a>
         </p>
     </div>
 </nav>
