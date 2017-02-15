@@ -1,0 +1,34 @@
+(function(){
+    angular
+        .module("WebAppMaker")
+        .controller("WebsiteEditController", WebsiteEditController);
+
+    function WebsiteEditController($routeParams, $location, WebsiteService) {
+        var vm = this;
+        vm.userId = $routeParams.uid;
+        vm.websiteId = $routeParams.wid;
+        vm.deleteWebsite = deleteWebsite;
+        vm.updateWebsite = updateWebsite;
+
+        function init() {
+            vm.websites = WebsiteService.findWebsitesByUser(vm.userId);
+            vm.website = WebsiteService.findWebsiteById(vm.websiteId);
+        }
+        init();
+
+        function deleteWebsite () {
+            WebsiteService.deleteWebsite(vm.websiteId);
+            $location.url("/user/"+vm.userId+"/website");
+        }
+
+        function updateWebsite(website) {
+            var web = WebsiteService.updateWebsite(vm.websiteId, website);
+
+            if(web===null){
+                vm.error = "Unable to update";
+            }else{
+                vm.success = "Updated Successfully";
+            }
+        };
+    }
+})();

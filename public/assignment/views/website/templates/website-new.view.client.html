@@ -4,7 +4,7 @@
 
         <div class="col-sm-4">
             <div class="navbar-brand pull-left wbdv-no-left-margin ">
-                <a href="website-list.view.client.html">
+                <a href="#/user/{{model.userId}}/website">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
             </div>
@@ -52,74 +52,55 @@
     </div>
 </nav>
 
-<div class="row container-fluid ">
-    <div class="col-sm-4 hidden-xs wbdv-left-pane">
-
-        <div class="row container-fluid">
-
-            <p class="form-control">
-                Blogging App
-
-                <a href="website-edit.view.client.html" class="pull-right">
-                    <span class="glyphicon glyphicon-cog"></span>
-                </a>
-            </p>
-
-        </div>
-
-        <div class="row container-fluid">
-
-            <p class="form-control">
-                Address Book App
-
-                <a href="website-edit.view.client.html" class="pull-right">
-                    <span class="glyphicon glyphicon-cog"></span>
-                </a>
-            </p>
-
-        </div>
-
-        <div class="row container-fluid">
-
-            <p class="form-control">
-                Script Testing App
-
-                <a href="website-edit.view.client.html" class="pull-right">
-                    <span class="glyphicon glyphicon-cog"></span>
-                </a>
-            </p>
-
-        </div>
-
-        <div class="row container-fluid">
-
-            <p class="form-control">
-                Blogger
-
-                <a href="website-edit.view.client.html" class="pull-right">
-                    <span class="glyphicon glyphicon-cog"></span>
-                </a>
-            </p>
-
-        </div>
-
-
-
+<div class="row container-fluid">
+    <div class="col-sm-4 hidden-xs">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-xs-10">
+                        Name
+                        <span class="glyphicon glyphicon-triangle-top"></span>
+                    </div>
+                    <div class="col-xs-2">
+                        <a href="website-new.html" class="pull-right">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li ng-repeat="website in model.websites" class="list-group-item">
+                <div class="row">
+                    <div class="col-xs-10">
+                        {{website.name}}
+                    </div>
+                    <div class="col-xs-2">
+                        <a href="/user/{{model.userId}}/website/{{website._id}}">
+                            <span class="glyphicon glyphicon-cog pull-right"></span>
+                        </a>
+                    </div>
+                </div>
+            </li>
+        </ul>
     </div>
+    <div class="col-sm-8">
+        <label for="website-name">Website Name</label>
+        <input ng-model="website.name"
+               placeholder="Website Name"
+               class="form-control"
+               id="website-name"/>
 
-    <div class="col-sm-8 col-xs-12 wbdv-right-pane">
-        <form>
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="email" class="form-control" id="name" placeholder="Name" autofocus>
-            </div>
-            <div class="form-group">
-                <label for="description">Description</label>
-                <textarea rows="4" cols="50" class="form-control" id="description" placeholder="Description"></textarea>
-            </div>
-        </form>
+        <label for="website-description">Website Description</label>
+        <textarea ng-model="website.description"
+                  placeholder="Website Description"
+                  class="form-control"
+                  id="website-description"></textarea>
+
+        <a ng-click="model.createWebsite(website)" class="btn btn-primary btn-block">
+            Create
+        </a>
     </div>
 </div>
+
 
 <nav class="navbar-default navbar-fixed-bottom">
     <div class="container-fluid">

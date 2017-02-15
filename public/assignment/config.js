@@ -12,6 +12,14 @@
                 controllerAs: 'model'
             })
 
+            // .when("/delete/:username",{
+            //     templateUrl: 'views/user/templates/login.view.client.html',
+            //     controller: 'loginController',
+            //     controllerAs: 'model'
+            // })
+
+
+
             .when("/",{
                 templateUrl: 'views/user/templates/login.view.client.html',
                 controller: 'loginController',
@@ -21,6 +29,12 @@
             .when("/register",{
                 templateUrl: 'views/user/templates/register.view.client.html',
                 controller: 'registerController',
+                controllerAs: 'model'
+            })
+
+            .when("/profile/:uid",{
+                templateUrl: 'views/user/templates/profile.view.client.html',
+                controller: 'profileController',
                 controllerAs: 'model'
             })
 

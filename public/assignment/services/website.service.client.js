@@ -37,12 +37,13 @@
 
 
         function findWebsitesByUser(userId) {
+            var sites = [];
             for(var w in websites) {
-                if(websites[w]._id === wid) {
-                    return angular.copy(websites[w]);
+                if(websites[w].developerId === userId) {
+                    sites.push(websites[w]);
                 }
             }
-            return null;
+            return sites;
         }
 
 
@@ -63,7 +64,7 @@
 
         function updateWebsite(websiteId, website) {
             for(var w in websites) {
-                var web = website[w];
+                var web = websites[w];
                 if( web._id === websiteId ) {
                     websites[w].name = website.name;
                     websites[w].developerId = website.developerId;

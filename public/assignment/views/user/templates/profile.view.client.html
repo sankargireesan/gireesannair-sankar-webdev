@@ -4,7 +4,7 @@
 
         <div class="col-xs-2">
             <p class="navbar-text pull-right">
-                <a href="profile.view.client.html">
+                <a href="#">
                     <span class="glyphicon glyphicon-ok"></span>
                 </a>
             </p>
@@ -12,34 +12,51 @@
     </div>
 </nav>
 
-    <div class="container sgn-bottom-padding">
+<div class="container sgn-bottom-padding">
 
-        <form>
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" class="form-control" id="username" placeholder="Username">
-            </div>
-            <div class="form-group">
-                <label for="email">Email address</label>
-                <input type="email" class="form-control" id="email" placeholder="your_email@domain.com">
-            </div>
-            <div class="form-group">
-                <label for="first-name">First Name</label>
-                <input type="text" class="form-control" id="first-name" placeholder="First Name">
-            </div>
-            <div class="form-group">
-                <label for="last-name">Last Name</label>
-                <input type="text" class="form-control" id="last-name" placeholder="Last Name">
-            </div>
-        </form>
-
-        <a class="btn btn-info btn-block"
-           href="../../website/templates/website-list.view.client.html">Websites</a>
-
-        <a class="btn btn-danger  btn-block"
-           href="#/login">Logout</a>
-
+    <div class="alert alert-danger" ng-show="model.error">
+        {{model.error}}
     </div>
+
+    <div class="alert alert-success" ng-show="model.message">
+        {{model.message}}
+    </div>
+
+
+    <form>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input ng-model="model.user.username" type="text" class="form-control" id="username" placeholder="Username">
+        </div>
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" placeholder="your_email@domain.com">
+        </div>
+        <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input ng-model="model.user.firstName" type="text" class="form-control" id="first-name" placeholder="First Name">
+        </div>
+        <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input ng-model="model.user.lastName" type="text" class="form-control" id="last-name" placeholder="Last Name">
+        </div>
+    </form>
+
+    <a class="btn btn-info btn-block"
+       href="#/user/{{model.user._id}}/website">Websites</a>
+
+    <a class="btn btn-success btn-block"
+       ng-click="model.update(model.user)">Update</a>
+
+
+    <a class="btn btn-warning btn-block"
+       ng-click="model.deleteUser()">Delete</a>
+
+
+    <a class="btn btn-danger  btn-block"
+       href="#/login">Logout</a>
+
+</div>
 
 <nav class="navbar-default navbar-fixed-bottom">
     <div class="container-fluid">

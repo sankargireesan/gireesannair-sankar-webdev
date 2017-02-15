@@ -5,6 +5,10 @@
         {{model.error}}
     </div>
 
+    <div ng-show="model.deleteMessage" class="alert alert-success ">
+        {{model.deleteMessage}}
+    </div>
+
     <label for="username">Username</label>
     <input ng-model="user.username"
            id="username" type="text"
@@ -19,8 +23,8 @@
 
     <a id = "login-button"
        class="btn btn-primary btn-block"
-       ng-click="model.login(user)"
-       >Login</a>
+       ng-click="model.login(user)">
+        Login</a>
 
     <a id="register-button" class="btn btn-success btn-block"
        href="#/register">Register</a>

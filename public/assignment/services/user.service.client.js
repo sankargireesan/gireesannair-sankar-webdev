@@ -25,7 +25,9 @@
 
 
         function createUser(user) {
+            user._id=(new Date().getTime().toString());
             users.push(user);
+            return user;
         }
 
         function findUserById(uid) {
@@ -76,10 +78,12 @@
 
         function deleteUser(userId) {
             for(var u in users) {
-                if(user[w]._id === userId) {
-                    user.splice(u, 1);
+                if(users[u]._id === userId) {
+                    users.splice(u, 1);
+
                 }
             }
+
         }
 
     }

@@ -1,110 +1,95 @@
-<nav class="navbar-default navbar-fixed-top container-fluid ">
-    <div class="row ">
-        <div class="col-xs-10">
-
-            <p class="navbar-brand pull-left">
-                <a href="../../user/templates/profile.view.client.html">
-                    <span class="glyphicon glyphicon-menu-left"></span>
-                </a>
-            </p>
-            <span class=" navbar-brand ">Websites</span>
-
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-text pull-left">
+            <a>
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
         </div>
-
-        <div class="col-xs-2 ">
-            <p class="navbar-brand pull-right">
-                <a href="website-new.view.client.html">
-                    <span class="glyphicon glyphicon-plus"></span>
-                </a>
-            </p>
+        <div class="navbar-text pull-right">
+            <a>
+                <span class="glyphicon glyphicon-plus"></span>
+            </a>
+        </div>
+        <div class="navbar-header">
+            <a class="navbar-brand sgn-no-left-padding wbdv-no-left-margin">
+                Websites
+            </a>
         </div>
     </div>
 </nav>
 
-<div class="container-fluid sgn-required-padding">
+<div class="container-fluid">
 
-    <div class="row sgn-required-padding">
-
-        <div class="col-xs-10">
-            <p class="pull-left">
-                <a href="../../../page/templates/page-list.view.client.html">
-                    <span><strong>Address Book App</strong></span>
-                </a>
-
-            </p>
-        </div>
-        <div class="col-xs-2">
-            <p class=" pull-right">
-                <a href="website-edit.view.client.html" >
-                    <span class="glyphicon glyphicon-cog"></span>
-                </a>
-            </p>
-        </div>
-    </div>
-
-    <div class="row sgn-required-padding">
-
-        <div class="col-xs-10">
-            <p class="pull-left">
-                <a href="../../../page/templates/page-list.view.client.html">
-                    <span><strong>Blogger</strong></span>
-                </a>
-
-            </p>
-        </div>
-        <div class="col-xs-2">
-            <p class=" pull-right">
-                <a href="website-edit.view.client.html" >
-                    <span class="glyphicon glyphicon-cog"></span>
-                </a>
-            </p>
-        </div>
-    </div>
-
-    <div class="row sgn-required-padding">
-
-        <div class="col-xs-10">
-            <p class="pull-left">
-                <a href="../../../page/templates/page-list.view.client.html">
-                    <span><strong>Blogging App</strong></span>
-                </a>
-
-            </p>
-        </div>
-        <div class="col-xs-2">
-            <p class=" pull-right">
-                <a href="website-edit.view.client.html" >
-                    <span class="glyphicon glyphicon-cog"></span>
-                </a>
-            </p>
-        </div>
-    </div>
-
-    <div class="row sgn-required-padding">
-
-        <div class="col-xs-10">
-            <p class="pull-left">
-                <a href="../../../page/templates/page-list.view.client.html">
-                    <span><strong>Script Testing App</strong></span>
-                </a>
-
-            </p>
-        </div>
-        <div class="col-xs-2">
-            <p class=" pull-right">
-                <a href="website-edit.view.client.html" >
-                    <span class="glyphicon glyphicon-cog"></span>
-                </a>
-            </p>
-        </div>
-    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-xs-11 col-sm-6">
+                    Name
+                    <span class="glyphicon glyphicon-triangle-top"></span>
+                </div>
+                <div class="col-sm-3 hidden-xs">
+                    Last Modified
+                </div>
+                <div class="col-sm-2 hidden-xs">
+                    Owner
+                </div>
+                <div class="col-xs-1">
+                    <a href="#/user/{{model.userId}}/website/new" class="pull-right">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                </div>
+            </div>
+        </li>
+        <li ng-repeat="website in model.websites" class="list-group-item">
+            <div class="row">
+                <div class="col-xs-11 col-sm-6">
+                    {{website.name}}
+                </div>
+                <div class="col-sm-3 hidden-xs">
+                    {{website.created | date}}
+                </div>
+                <div class="col-sm-2 hidden-xs">
+                    {{website.developerId}}
+                </div>
+                <div class="col-xs-1">
+                    <a href="#/user/{{model.userId}}/website/{{website._id}}">
+                        <span class="glyphicon glyphicon-cog pull-right"></span>
+                    </a>
+                </div>
+            </div>
+        </li>
+    </ul>
 </div>
 
-<nav class="navbar-default navbar-fixed-bottom">
-    <div class="container-fluid">
-        <p class="navbar-brand pull-right">
-            <a href="../../user/templates/profile.view.client.html">
-                <span class="glyphicon glyphicon-user"></span></a>
-        </p>
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="row container-fluid">
+        <div class="col-xs-3">
+            <div class="navbar-text text-center">
+                <a>
+                    <span class="glyphicon glyphicon-cog"></span>
+                </a>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="navbar-text">
+                <a>
+                    <span class="glyphicon glyphicon-cog"></span>
+                </a>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="navbar-text">
+                <a>
+                    <span class="glyphicon glyphicon-cog"></span>
+                </a>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="navbar-text">
+                <a>
+                    <span class="glyphicon glyphicon-cog"></span>
+                </a>
+            </div>
+        </div>
     </div>
 </nav>

@@ -16,5 +16,16 @@
                 vm.error = 'user not found';
             }
         }
+
+
+         // var username = $routeParams['username'];
+         // if(username=== null){
+        //
+        // }
+        // else{
+        //     vm.deleteMessage =username + 'deleted';
+        // }
+
+
     }
 })();
