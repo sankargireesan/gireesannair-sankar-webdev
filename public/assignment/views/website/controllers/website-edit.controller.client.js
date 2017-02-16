@@ -1,7 +1,7 @@
 (function(){
     angular
         .module("WebAppMaker")
-        .controller("WebsiteEditController", WebsiteEditController);
+        .controller("EditWebsiteController", WebsiteEditController);
 
     function WebsiteEditController($routeParams, $location, WebsiteService) {
         var vm = this;
@@ -29,6 +29,8 @@
             }else{
                 vm.success = "Updated Successfully";
             }
+
+            $location.url("/user/"+vm.userId+"/website");
         };
     }
 })();

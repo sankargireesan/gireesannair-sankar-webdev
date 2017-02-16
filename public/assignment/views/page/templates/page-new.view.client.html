@@ -17,7 +17,7 @@
 </nav>
 
 
-<div class="container-fluid sgn-required-padding" >
+<div class="container-fluid sgn-required-padding sgn-bottom-padding " >
     <label for="name">Name</label>
     <input ng-model="page.name"
            id="name" type="text"
@@ -38,11 +38,12 @@
 
 
 
-<nav class="navbar navbar-default navbar-fixed-bottom">
+<nav class="navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <p class="navbar-brand pull-right">
-            <a href="../../views/user/templates/profile.view.client.html">
-                <span class="glyphicon glyphicon-user lbl-glyphicon"></span></a>
+            <a href="#/user/{{model.userId}}">
+                <span class="glyphicon glyphicon-user"></span>
+            </a>
         </p>
     </div>
 </nav>

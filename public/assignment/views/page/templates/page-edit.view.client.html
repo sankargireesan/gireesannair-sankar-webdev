@@ -2,19 +2,22 @@
 <nav class="navbar-default navbar-fixed-top container-fluid ">
 
     <p class="navbar-brand pull-left sgn-no-left-padding">
-        <a href="page-list.view.client.html" class="glyphicon glyphicon-chevron-left default-glyphicon">
+        <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page"
+           class="glyphicon glyphicon-chevron-left default-glyphicon">
         </a>
         <span>Edit Page</span>
     </p>
+
     <p class="navbar-brand pull-right">
-        <a href="page-list.view.client.html" class="glyphicon glyphicon-ok default-glyphicon">
+        <a ng-click="model.updatePage(model.page)"
+           class="glyphicon glyphicon-ok default-glyphicon">
         </a>
     </p>
 
 </nav>
 
 
-<div class="container-fluid sgn-required-padding">
+<div class="container-fluid sgn-required-padding sgn-required-top-margin sgn-bottom-padding">
 
 
     <div  ng-show="model.error" class="alert alert-danger">
@@ -51,11 +54,12 @@
 </div>
 
 
-<nav class="navbar navbar-default navbar-fixed-bottom">
+<nav class="navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <p class="navbar-brand pull-right">
-            <a href="../../views/user/templates/profile.view.client.html">
-                <span class="glyphicon glyphicon-user lbl-glyphicon"></span></a>
+            <a href="#/user/{{model.userId}}">
+                <span class="glyphicon glyphicon-user"></span>
+            </a>
         </p>
     </div>
 </nav>

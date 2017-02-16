@@ -42,13 +42,13 @@
 
             .when("/user/:uid/website/new",{
                 templateUrl: 'views/website/templates/website-new.view.client.html',
-                controller: "WebsiteNewController",
+                controller: "NewWebsiteController",
                 controllerAs: "model"
             })
 
             .when("/user/:uid/website/:wid",{
                 templateUrl: 'views/website/templates/website-edit.view.client.html',
-                controller: "WebsiteEditController",
+                controller: "EditWebsiteController",
                 controllerAs: "model"
             })
 

@@ -3,7 +3,7 @@
     <div class="row container-fluid">
         <div class="col-xs-10">
             <p class="navbar-brand pull-left">
-                <a href="../../views/website/templates/website-list.view.client.html">
+                <a href="#/user/{{model.userId}}/website">
                   <span class="glyphicon glyphicon-chevron-left default-glyphicon">
                   </span>
                 </a>
@@ -12,7 +12,7 @@
         </div>
         <div class="col-xs-2">
             <p class="navbar-brand pull-right">
-                <a href="page-new.view.client.html">
+                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/new">
                   <span class="glyphicon glyphicon-plus default-glyphicon">
                   </span>
                 </a>
@@ -22,7 +22,7 @@
 
 </nav>
 
-<div class="container-fluid">
+<div class="container-fluid sgn-required-padding sgn-bottom-padding">
 
     <ul class="list-group">
         <li class="list-group-item">
@@ -36,7 +36,9 @@
         <li ng-repeat="page in model.pages" class="list-group-item">
             <div class="row">
                 <div class="col-xs-10">
-                    {{page.name}}
+                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}/widget">
+                        {{page.name}}
+                    </a>
                 </div>
                 <div class="col-xs-2">
                     <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}">
@@ -48,13 +50,12 @@
     </ul>
 </div>
 
-
 <nav class="navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <p class="navbar-brand pull-right">
-            <a href="../../views/user/templates/profile.view.client.html">
-                <span class="glyphicon glyphicon-user"></span></a>
+            <a href="#/user/{{model.userId}}">
+                <span class="glyphicon glyphicon-user"></span>
+            </a>
         </p>
     </div>
 </nav>
-

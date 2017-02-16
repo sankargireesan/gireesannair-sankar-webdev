@@ -35,6 +35,7 @@
             }else{
                 vm.success = "Updated Successfully";
             }
+            $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
         }
 
         function createNewWidget(type) {

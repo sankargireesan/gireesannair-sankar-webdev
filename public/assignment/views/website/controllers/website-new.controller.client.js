@@ -1,7 +1,7 @@
 (function(){
     angular
         .module("WebAppMaker")
-        .controller("WebsiteNewController", WebsiteNewController);
+        .controller("NewWebsiteController", WebsiteNewController);
 
     function WebsiteNewController($routeParams, $location, WebsiteService) {
         var vm = this;

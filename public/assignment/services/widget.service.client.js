@@ -62,6 +62,8 @@
                     widgets[w].pageId = widget.pageId;
                     widgets[w].size = widget.size;
                     widgets[w].text = widget.text;
+                    widgets[w].url = widget.url;
+                    widgets[w].width = widget.width;
                     return wd;
                 }
             }

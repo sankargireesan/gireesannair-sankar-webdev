@@ -1,11 +1,14 @@
 <nav class="navbar-default navbar-fixed-top container-fluid ">
 
     <p class="navbar-brand pull-left sgn-no-left-padding">
-        <a href="widget-list.html" class="glyphicon glyphicon-chevron-left"></a>
+        <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget"
+           class="glyphicon glyphicon-chevron-left"></a>
         <span>Widget Edit</span>
     </p>
+
     <p class="navbar-brand pull-right">
-        <a href="widget-list.html" class="glyphicon glyphicon-ok"></a>
+        <a ng-click="model.updateWidget(model.widget)"
+           class="glyphicon glyphicon-ok"></a>
     </p>
 
 </nav>
@@ -21,7 +24,9 @@
         {{model.success}}
     </div>
 
-    <div class="sgn-required-bottom-margin" ng-include="model.getEditorTemplateUrl(model.widget.widgetType)"></div>
+    <div class="sgn-required-bottom-margin"
+         ng-include="model.getEditorTemplateUrl(model.widget.widgetType)">
+    </div>
 
     <a ng-click="model.updateWidget(model.widget)"
        class="btn btn-success  btn-block">
@@ -38,8 +43,9 @@
 <nav class="navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <p class="navbar-brand pull-right">
-            <a href="../../user/templates/profile.view.client.html">
-                <span class="glyphicon glyphicon-user"></span></a>
+            <a href="#/user/{{model.userId}}">
+                <span class="glyphicon glyphicon-user"></span>
+            </a>
         </p>
     </div>
 </nav>
