@@ -1,9 +1,9 @@
 (function(){
     angular
         .module("WebAppMaker")
-        .controller("WidgetEditController", WidgetEditController);
+        .controller("EditWidgetController", EditWidgetController);
 
-    function WidgetEditController($routeParams, $location, WidgetService) {
+    function EditWidgetController($routeParams, $location, WidgetService) {
         var vm = this;
         vm.userId = $routeParams.uid;
         vm.websiteId = $routeParams.wid;
@@ -12,7 +12,7 @@
         vm.getEditorTemplateUrl = getEditorTemplateUrl;
         vm.deleteWidget = deleteWidget;
         vm.updateWidget = updateWidget;
-        vm.createNewWidget = createNewWidget;
+        // vm.createNewWidget = createNewWidget;
 
 
 
@@ -38,12 +38,7 @@
             $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
         }
 
-        function createNewWidget(type) {
-            var wid ={};
-            wid.widgetType = type;
-            wid = WidgetService.createWidget(vm.pageId,wid);
-            $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget/"+wid._id);
-        }
+
 
         function getEditorTemplateUrl(type) {
             return 'views/widget/templates/editors/widget-'+type+'-editor.view.client.html';

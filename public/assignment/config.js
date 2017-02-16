@@ -78,13 +78,13 @@
 
             .when("/user/:uid/website/:wid/page/:pid/widget/new",{
                 templateUrl: 'views/widget/templates/widget-chooser.view.client.html',
-                controller: "WidgetEditController",
+                controller: "NewWidgetController",
                 controllerAs: "model"
             })
 
             .when("/user/:uid/website/:wid/page/:pid/widget/:wgid",{
                 templateUrl: 'views/widget/templates/widget-edit.view.client.html',
-                controller: "WidgetEditController",
+                controller: "EditWidgetController",
                 controllerAs: "model"
             });
 

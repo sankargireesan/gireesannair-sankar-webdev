@@ -9,7 +9,7 @@
 
         function create (newUser) {
             var user = UserService.createUser(newUser);
-            $location.url('/profile/' + user._id);
+            $location.url('/user/' + user._id);
 
         }
     }
