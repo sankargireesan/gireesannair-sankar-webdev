@@ -1,56 +1,134 @@
 
-<nav class="navbar-default navbar-fixed-top container-fluid ">
+<!--<nav class="navbar-default navbar-fixed-top container-fluid ">-->
 
-    <p class="navbar-brand pull-left sgn-no-left-padding">
-        <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page"
-           class="glyphicon glyphicon-chevron-left default-glyphicon">
-        </a>
-        <span>Edit Page</span>
-    </p>
+    <!--<p class="navbar-brand pull-left sgn-no-left-padding">-->
+        <!--<a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page"-->
+           <!--class="glyphicon glyphicon-chevron-left default-glyphicon">-->
+        <!--</a>-->
+        <!--<span>Edit Page</span>-->
+    <!--</p>-->
 
-    <p class="navbar-brand pull-right">
-        <a ng-click="model.updatePage(model.page)"
-           class="glyphicon glyphicon-ok default-glyphicon">
-        </a>
-    </p>
+    <!--<p class="navbar-brand pull-right">-->
+        <!--<a ng-click="model.updatePage(model.page)"-->
+           <!--class="glyphicon glyphicon-ok default-glyphicon">-->
+        <!--</a>-->
+    <!--</p>-->
 
+<!--</nav>-->
+
+
+
+<nav class=" navbar-default navbar-fixed-top container-fluid">
+    <div class="row  ">
+
+        <div class="col-xs-2 col-sm-4">
+            <div class="navbar-brand pull-left wbdv-no-left-margin ">
+                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+            </div>
+
+
+            <div class="hidden-xs  navbar-brand">
+                Pages
+            </div>
+
+
+            <div class=" hidden-xs">
+                <div class="navbar-brand pull-right">
+                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/new">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="col-xs-10 col-sm-8">
+            <div class="row">
+
+                <div class="col-10">
+                    <div class="navbar-brand">
+                        Edit Page
+                    </div>
+
+                </div>
+
+                <div class="col-2">
+                    <div class="navbar-brand pull-right ">
+                        <a ng-click="model.updatePage(model.page)">
+                            <span class="glyphicon glyphicon-ok"></span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
 </nav>
 
 
-<div class="container-fluid sgn-required-padding sgn-required-top-margin sgn-bottom-padding">
 
 
-    <div  ng-show="model.error" class="alert alert-danger">
-        {{model.error}}
+
+
+<div class="row container-fluid">
+    <div class="col-sm-4 hidden-xs wbdv-left-pane">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-xs-10">
+                        Name
+                        <span class="glyphicon glyphicon-triangle-top"></span>
+                    </div>
+                    <div class="col-xs-2">
+                        <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/new"
+                           class="pull-right">
+                           <span class="glyphicon glyphicon-plus"></span>
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li ng-repeat="page in model.pages" class="list-group-item">
+                <div class="row">
+                    <div class="col-xs-10">
+                        {{page.name}}
+                    </div>
+                    <div class="col-xs-2">
+                        <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}">
+                            <span class="glyphicon glyphicon-cog pull-right"></span>
+                        </a>
+                    </div>
+                </div>
+            </li>
+        </ul>
     </div>
+    <div class="col-sm-8 wbdv-right-pane col-xs-12">
 
-    <div ng-show="model.success" class="alert alert-success" >
-        {{model.success}}
+        <label for="name">Name</label>
+        <input ng-model="model.page.name"
+               id="name" type="text"
+               class="form-control"
+               placeholder="Page Name"/>
+
+        <label for="title">Title</label>
+        <input ng-model="model.page.description"
+               id="title" type="text"
+               class="form-control"
+               placeholder="Page Title"/>
+
+
+        <a ng-click="model.updatePage(model.page)" class="btn btn-success  btn-block">
+            Update
+        </a>
+
+        <a ng-click="model.deletePage()" class="btn btn-danger btn-block">
+            Delete
+        </a>
+
     </div>
-
-
-
-    <label for="name">Name</label>
-    <input ng-model="model.page.name"
-           id="name" type="text"
-           class="form-control"
-           placeholder="Page Name"/>
-
-    <label for="title">Title</label>
-    <input ng-model="model.page.description"
-           id="title" type="text"
-           class="form-control"
-           placeholder="Page Title"/>
-
-
-    <a ng-click="model.updatePage(model.page)" class="btn btn-success  btn-block">
-        Update
-    </a>
-
-    <a ng-click="model.deletePage()" class="btn btn-danger btn-block">
-        Delete
-    </a>
-
 </div>
 
 
