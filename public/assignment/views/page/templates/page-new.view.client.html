@@ -1,14 +1,14 @@
 <nav class="navbar-default navbar-fixed-top container-fluid ">
 
     <p class="navbar-brand pull-left sgn-no-left-padding">
-        <a href="#/user/{{model.userId}}/website">
+        <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page">
           <span class="glyphicon glyphicon-chevron-left"></span>
         </a>
         <span>New Page</span>
     </p>
 
     <p class="navbar-brand pull-right">
-        <a href="page-list.view.client.html">
+        <a ng-click="model.createPage(page)">
           <span class="glyphicon glyphicon-ok">
           </span>
         </a>
