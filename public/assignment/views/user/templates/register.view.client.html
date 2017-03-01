@@ -1,6 +1,11 @@
 <div class="container">
     <h1>Register</h1>
 
+    <div ng-show="model.error" class="alert alert-danger">
+        {{model.error}}
+    </div>
+
+
     <label for="username">Username</label>
     <input ng-model="user.username"
            id ="username" type="text"

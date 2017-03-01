@@ -12,35 +12,53 @@
         vm.getEditorTemplateUrl = getEditorTemplateUrl;
         vm.deleteWidget = deleteWidget;
         vm.updateWidget = updateWidget;
-        // vm.createNewWidget = createNewWidget;
 
 
 
         function init() {
-            vm.widget = WidgetService.findWidgetById(vm.widgetId);
-        }
-        init();
+            WidgetService
+                .findWidgetsByPageId(vm.pageId)
+                .success(function (widgets) {
+                    vm.widgets = widgets;
+                });
+
+            WidgetService
+                .findWidgetById(vm.widgetId)
+                .success(function (widget) {
+                    vm.widget = widget;
+                });
+        }init();
+
 
         function deleteWidget() {
-            WidgetService.deleteWidget(vm.widgetId);
-            $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
+            WidgetService
+                .deleteWidget(vm.widgetId)
+                .success(function () {
+                    $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
+                })
+                .error(function () {
+                    vm.error = "Unable to delete this widget";
+                })
+
         }
 
 
         function updateWidget(widget) {
-            var wdg = WidgetService.updateWidget(vm.widgetId, widget);
+            WidgetService
+                .updateWidget(vm.widgetId, widget)
+                .success(function () {
+                    $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
+                })
+                .error(function () {
+                    vm.error = "Unable to update";
+                });
 
-            if(wdg===null){
-                vm.error = "Unable to update";
-            }else{
-                vm.success = "Updated Successfully";
-            }
-            $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
+
         }
 
 
-
         function getEditorTemplateUrl(type) {
+            //console.log(type);
             return 'views/widget/templates/editors/widget-'+type+'-editor.view.client.html';
         }
     }

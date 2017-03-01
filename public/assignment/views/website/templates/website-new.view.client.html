@@ -82,6 +82,13 @@
         </ul>
     </div>
     <div class="col-sm-8">
+
+
+        <div ng-show="model.error" class="alert alert-danger">
+            {{model.error}}
+        </div>
+
+
         <label for="website-name">Website Name</label>
         <input ng-model="website.name"
                placeholder="Website Name"

@@ -10,27 +10,50 @@
         vm.deleteWebsite = deleteWebsite;
         vm.updateWebsite = updateWebsite;
 
+
         function init() {
-            vm.websites = WebsiteService.findWebsitesByUser(vm.userId);
-            vm.website = WebsiteService.findWebsiteById(vm.websiteId);
-        }
-        init();
+            WebsiteService
+                .findWebsitesByUser(vm.userId)
+                .success(function (websites) {
+                    vm.websites = websites;
+                });
+
+            WebsiteService
+                .findWebsiteById(vm.websiteId)
+                .success(function (website) {
+                    vm.website = website;
+                });
+
+        }init();
 
         function deleteWebsite () {
-            WebsiteService.deleteWebsite(vm.websiteId);
-            $location.url("/user/"+vm.userId+"/website");
+            var answer = confirm("Are you sure?");
+            if(answer) {
+                WebsiteService
+                    .deleteWebsite(vm.websiteId)
+                    .success(function () {
+                        $location.url("/user/" + vm.userId + "/website");
+                    })
+
+                    .error(function () {
+                        vm.error = 'unable to delete the website';
+
+                    });
+            }
         }
 
         function updateWebsite(website) {
-            var web = WebsiteService.updateWebsite(vm.websiteId, website);
+            WebsiteService
+                .updateWebsite(vm.websiteId, website)
+                .success(function () {
+                    vm.message = "Website successfully updated";
+                    $location.url("/user/"+vm.userId+"/website");
+                })
+                .error(function () {
+                    vm.error = "unable to update the website";
+                });
 
-            if(web===null){
-                vm.error = "Unable to update";
-            }else{
-                vm.success = "Updated Successfully";
-            }
 
-            $location.url("/user/"+vm.userId+"/website");
-        };
+        }
     }
 })();

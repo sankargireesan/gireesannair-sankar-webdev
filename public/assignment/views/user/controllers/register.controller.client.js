@@ -7,10 +7,24 @@
         var vm = this;
         vm.create = create;
 
-        function create (newUser) {
-            var user = UserService.createUser(newUser);
-            $location.url('/user/' + user._id);
+        function create (user) {
+            UserService
+                .findUserByUsername(user.username)
+                .success(function (user) {
+                    vm.error = "user name not available"
+                })
 
+                .error(function(){
+                    UserService
+                        .createUser(user)
+                        .success(function(user){
+                            $location.url('/user/' + user._id);
+                        })
+
+                        .error(function () {
+                            vm.error = 'Unable to register';
+                        });
+                });
         }
     }
 })();

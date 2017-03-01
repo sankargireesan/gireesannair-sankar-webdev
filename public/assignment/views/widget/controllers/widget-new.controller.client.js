@@ -15,9 +15,18 @@
         function createNewWidget(type) {
             var wid ={};
             wid.widgetType = type;
-            wid = WidgetService.createWidget(vm.pageId,wid);
-            $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget/"+wid._id);
+            WidgetService
+                .createWidget(vm.pageId,wid)
+                .success(function (wid) {
+                   // console.log(wid.widgetType);
+                    $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget/"+wid._id);
+                })
+
+                .error(function () {
+                    vm.error = "Unable to create new widget";
+                })
         }
+
     }
 
 })();

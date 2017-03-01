@@ -8,27 +8,43 @@
         var userId = $routeParams['uid'];
         vm.update = update;
         vm.deleteUser = deleteUser;
-        vm.user = UserService.findUserById(userId);
+
+        function init() {
+            UserService
+                .findUserById(userId)
+                .success(function (user){
+                    vm.user = user;
+                });
+        }
+        init();
 
         function update (newUser) {
-            var newUser = UserService.updateUser(userId, newUser);
-
-            if(newUser == null) {
-                vm.error = "unable to update user";
-            } else {
-                vm.message = "user successfully updated"
-            }
+            UserService
+                .updateUser(userId, newUser)
+                .success(function (response) {
+                    vm.message = "user successfully updated"
+                })
+                .error(function () {
+                    vm.error = "unable to update user";
+                });
         }
 
         function deleteUser() {
-            UserService.deleteUser(userId);
-            if(UserService.findUserById(userId)=== null){
-                $location.url('/')
+            var answer = confirm("Are you sure?");
+            if(answer) {
+                UserService
+                    .deleteUser(userId)
+                    .success(function () {
+                        $location.url('/');
+                    })
+
+                    .error(function () {
+                        vm.error  = 'unable to remove user';
+
+                    });
             }
 
         }
-
-
 
     }
 })();

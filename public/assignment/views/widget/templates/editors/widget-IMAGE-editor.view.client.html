@@ -1,33 +1,51 @@
 <div>
-    <label for="name">Name</label>
-    <input id="name" type="text"
-           class="form-control"
-           placeholder="Page Name"/>
+    <form action="/api/upload" method="post" enctype="multipart/form-data">
+        <label for="name">Name</label>
+        <input ng-model="model.widget.name"
+               id="name" type="text"
+               name="filename"
+               class="form-control"
+               placeholder="Page Name"/>
 
-    <label for="text">Text</label>
-    <input ng-model="model.widget.text"
-           id="text" type="text"
-           class="form-control"
-           placeholder="Widget Text"/>
+        <label for="text">Text</label>
+        <input ng-model="model.widget.text"
+               id="text" type="text"
+               class="form-control"
+               placeholder="Widget Text"/>
 
-    <label for="url">URL</label>
-    <input ng-model="model.widget.url"
-           type="url" id="url"
-           class="form-control">
+        <label for="url">URL</label>
+        <input ng-model="model.widget.url"
+               type="url" id="url"
+               name = "url"
+               value="{{model.widget.url}}"
+               class="form-control">
 
-    <label for="width">Width</label>
-    <input ng-model="model.widget.width"
-           class="form-control "
-           min="0" id="width" type="text">
+        <label for="width">Width</label>
+        <input ng-model="model.widget.width"
+               class="form-control "
+               min="0" name="width"
+               value="{{model.widget.width}}"
+               id="width" type="text">
 
-    <label for="upload-button">Upload</label>
-    <input class="form-control "
-           id="upload-button"
-           type="file">
+        <label for="upload-button">Upload</label>
+        <input class="form-control "
+               id="upload-button"
+               name = "myFile"
+               type="file">
 
-    <label for="upload"></label>
-    <a id="upload" class="btn btn-primary btn-block">
-        Upload Image
-    </a>
+        <input  name="widgetId" value="{{model.widget._id}}"   style="display: none"/>
+        <input  name="pageId" value="{{model.pageId}}"   style="display: none"/>
+        <input  name="userId" value="{{model.userId}}"   style="display: none"/>
+        <input  name="websiteId" value="{{model.websiteId}}"   style="display: none"/>
+
+
+        <label for="upload"></label>
+        <button type="submit"
+                id="upload"
+                class="btn btn-primary btn-block">
+            Upload Image
+        </button>
+
+    </form>
 
 </div>

@@ -11,26 +11,51 @@
         vm.deletePage = deletePage;
         vm.updatePage = updatePage;
 
+
         function init() {
-            vm.page = PageService.findPageById(vm.pageId);
-            vm.pages = PageService.findPageByWebsiteId(vm.websiteId);
-        }
-        init();
+            PageService
+                .findPageByWebsiteId(vm.websiteId)
+                .success(function (pages) {
+                    vm.pages = pages;
+                });
+
+            PageService
+                .findPageById(vm.pageId)
+                .success(function (page) {
+                    vm.page = page;
+                });
+
+        }init();
 
         function deletePage () {
-            PageService.deletePage(vm.pageId);
-            $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page");
+            var answer = confirm("Are you sure?");
+            if(answer){
+                PageService
+                    .deletePage(vm.pageId)
+                    .success(function () {
+                        $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page");
+                    })
+
+                    .error(function () {
+                        vm.error = 'unable to delete this page';
+
+                    });
+
+            }
+
         }
 
         function updatePage(page) {
-            var p = PageService.updatePage(vm.pageId, page);
+            PageService
+                .updatePage(vm.pageId, page)
+                .success(function () {
+                    vm.message = "Page successfully updated";
+                    $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page");
+                })
+                .error(function () {
+                    vm.error = "unable to update the page";
+                });
 
-            if(p ===null){
-                vm.error = "Unable to update";
-            }else{
-                vm.success = "Updated Successfully";
-            }
-            $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page");
-        };
+        }
     }
 })();

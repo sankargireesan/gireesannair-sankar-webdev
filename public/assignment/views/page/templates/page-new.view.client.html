@@ -1,20 +1,3 @@
-<!--<nav class="navbar-default navbar-fixed-top container-fluid ">-->
-
-    <!--<p class="navbar-brand pull-left sgn-no-left-padding">-->
-        <!--<a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page">-->
-          <!--<span class="glyphicon glyphicon-chevron-left"></span>-->
-        <!--</a>-->
-        <!--<span>New Page</span>-->
-    <!--</p>-->
-
-    <!--<p class="navbar-brand pull-right">-->
-        <!--<a ng-click="model.createPage(page)">-->
-          <!--<span class="glyphicon glyphicon-ok">-->
-          <!--</span>-->
-        <!--</a>-->
-    <!--</p>-->
-
-<!--</nav>-->
 
 <nav class=" navbar-default navbar-fixed-top container-fluid">
     <div class="row">
@@ -70,24 +53,6 @@
 </nav>
 
 
-<!--<div class="container-fluid sgn-required-padding sgn-bottom-padding " >-->
-    <!--<label for="name">Name</label>-->
-    <!--<input ng-model="page.name"-->
-           <!--id="name" type="text"-->
-           <!--class="form-control"-->
-           <!--placeholder="Page Name"/>-->
-
-    <!--<label for="description">Title</label>-->
-    <!--<input ng-model="page.description"-->
-           <!--id="description" type="text"-->
-           <!--class="form-control"-->
-           <!--placeholder="Page Title"/>-->
-
-    <!--<a ng-click="model.createPage(page)" class="btn btn-primary btn-block">-->
-        <!--Create-->
-    <!--</a>-->
-
-<!--</div>-->
 
 
 <div class="row container-fluid">
@@ -122,6 +87,11 @@
     </div>
 
     <div class="col-sm-8">
+
+        <div ng-show="model.error" class="alert alert-danger">
+            {{model.error}}
+        </div>
+
 
         <label for="name">Name</label>
         <input ng-model="page.name"

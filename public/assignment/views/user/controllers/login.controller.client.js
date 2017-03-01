@@ -8,13 +8,22 @@
         vm.login = login;
 
         function login(user) {
-            var loginUser = UserService.findUserByCredentials(user.username, user.password);
-            if(loginUser != null) {
-                $location.url('/user/' + loginUser._id);
+            var promise  = UserService
+                .findUserByCredentials(user.username, user.password);
 
-            } else {
-                vm.error = 'user not found';
-            }
+            promise
+                .success(function (user){
+                    if(user){
+                        $location.url('/user/' + user._id);
+
+                    } else {
+                        vm.error = 'user not found';
+                    }
+                })
+
+                .error(function(err) {
+                    vm.error = 'user not found';
+                });
         }
     }
 })();

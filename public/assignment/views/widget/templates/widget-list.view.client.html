@@ -20,19 +20,19 @@
 
 
 <div class="container-fluid sgn-bottom-padding sgn-required-padding">
+    <div jga-sortable="">
+        <div ng-repeat="widget in model.widgets">
+            <div class="sgn-toolbar">
+                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+                    <span class="glyphicon glyphicon-cog"></span>
+                </a>
+                <span class="glyphicon glyphicon-align-justify sortable-handle"></span>
+            </div>
 
-    <div ng-repeat="widget in model.widgets">
-        <div class="sgn-toolbar">
-            <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-align-justify"></span>
+            <ng-include src="model.getWidgetTemplateUrl(widget.widgetType)"></ng-include>
+
         </div>
-
-        <ng-include src="model.getWidgetTemplateUrl(widget.widgetType)"></ng-include>
-
     </div>
-
 </div>
 
 
