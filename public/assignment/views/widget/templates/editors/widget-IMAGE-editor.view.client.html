@@ -2,6 +2,8 @@
     <form action="/api/upload" method="post" enctype="multipart/form-data">
         <label for="name">Name</label>
         <input ng-model="model.widget.name"
+               name = "name"
+               value="{{model.widget.name}}"
                id="name" type="text"
                name="filename"
                class="form-control"
@@ -9,6 +11,7 @@
 
         <label for="text">Text</label>
         <input ng-model="model.widget.text"
+               name = "text"
                id="text" type="text"
                class="form-control"
                placeholder="Widget Text"/>

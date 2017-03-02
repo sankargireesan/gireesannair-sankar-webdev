@@ -1,12 +1,14 @@
 <div>
 
     <label for="name">Name</label>
-    <input id="name" type="text"
+    <input ng-model="model.widget.name"
+           id="name" type="text"
            class="form-control"
            placeholder="Widget Name"/>
 
     <label for="text">Text</label>
-    <input id="text" type="text"
+    <input ng-model="model.widget.text"
+           id="text" type="text"
            class="form-control"
            placeholder="Widget Text"/>
 

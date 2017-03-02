@@ -32,6 +32,7 @@ module.exports = function (app) {
         var pageId          = req.body.pageId;
         var userId          = req.body.userId;
         var websiteId       = req.body.websiteId;
+        var name            = req.body.name;
         var url             = req.body.url;
         var width           = req.body.width || 100;
         width = width.toString()+"%";
@@ -58,8 +59,10 @@ module.exports = function (app) {
         for(var w in widgets) {
             if(widgets[w]._id == widgetId){
                 widgets[w].widgetId = widgetId;
+                widgets[w].name = name;
                 widgets[w].widgetType = "IMAGE";
                 widgets[w].pageId = pageId;
+                widgets[w].text= req.body.text;
                 widgets[w].width = width.toString();
                 widgets[w].url = new_url;
             }
@@ -110,6 +113,7 @@ module.exports = function (app) {
         for(var w in widgets) {
             if( widgets[w]._id == widgetId ) {
                 widgets[w].widgetType = widget.widgetType;
+                widgets[w].name = widget.name;
                 widgets[w].pageId = widget.pageId;
                 widgets[w].size = widget.size;
                 widgets[w].text = widget.text;
