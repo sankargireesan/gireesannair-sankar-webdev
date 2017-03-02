@@ -40,7 +40,7 @@ module.exports = function (app) {
 
 
         if(url){
-            var path = url;
+            var new_url = url;
         }
         else {
 
@@ -51,6 +51,7 @@ module.exports = function (app) {
             var destination = myFile.destination;  // folder where file is saved to
             var size = myFile.size;
             var mimetype = myFile.mimetype;
+            new_url = req.protocol+'://'+req.get('host')+'/uploads/'+filename;
         }
 
 
@@ -61,7 +62,7 @@ module.exports = function (app) {
                 widgets[w].widgetType = "IMAGE";
                 widgets[w].pageId = pageId;
                 widgets[w].width = width.toString();
-                widgets[w].url = path;
+                widgets[w].url = new_url;
             }
         }
 
