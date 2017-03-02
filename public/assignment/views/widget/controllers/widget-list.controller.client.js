@@ -7,7 +7,7 @@
         var vm = this;
         vm.getYouTubeEmbedUrl = getYouTubeEmbedUrl;
         vm.getTrustedHtml = getTrustedHtml;
-        vm.getWidgetTemplateUrl = getWidgetTemplateUrl;
+        //vm.getWidgetTemplateUrl = getWidgetTemplateUrl;
         vm.userId = $routeParams.uid;
         vm.websiteId = $routeParams.wid;
         vm.pageId = $routeParams.pid;
