@@ -20,8 +20,9 @@
 
 
 <div class="container-fluid sgn-bottom-padding sgn-required-padding">
-    <div jga-sortable="">
+    <div sgn-sortable="">
         <div ng-repeat="widget in model.widgets">
+
             <div class="sgn-toolbar">
                 <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
                     <span class="glyphicon glyphicon-cog"></span>
@@ -29,7 +30,23 @@
                 <span class="glyphicon glyphicon-align-justify sortable-handle"></span>
             </div>
 
-            <ng-include src="model.getWidgetTemplateUrl(widget.widgetType)"></ng-include>
+            <!--<ng-include src="model.getWidgetTemplateUrl(widget.widgetType)"></ng-include>-->
+
+            <div ng-switch="widget.widgetType">
+                <div ng-switch-when="HEADING">
+                    <ng-include src="'views/widget/templates/widget-HEADING.view.client.html'"></ng-include>
+                </div>
+                <div ng-switch-when="IMAGE">
+                    <ng-include src="'views/widget/templates/widget-IMAGE.view.client.html'"></ng-include>
+                </div>
+                <div ng-switch-when="HTML">
+                    <ng-include src="'views/widget/templates/widget-HTML.view.client.html'"></ng-include>
+                </div>
+                <div ng-switch-when="YOUTUBE">
+                    <ng-include src="'views/widget/templates/widget-YOUTUBE.view.client.html'"></ng-include>
+                </div>
+            </div>
+
 
         </div>
     </div>

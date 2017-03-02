@@ -21,10 +21,10 @@
         }init();
 
 
-        function getWidgetTemplateUrl(widgetType) {
-            var url = 'views/widget/templates/widget-'+widgetType+'.view.client.html';
-            return url;
-        }
+        // function getWidgetTemplateUrl(widgetType) {
+        //     var url = 'views/widget/templates/widget-'+widgetType+'.view.client.html';
+        //     return url;
+        // }
 
         function getTrustedHtml(html) {
             return $sce.trustAsHtml(html);

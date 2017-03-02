@@ -36,6 +36,7 @@ module.exports = function (app) {
         var websiteId       = req.body.websiteId;
         var url             = req.body.url;
         var width           = req.body.width || 100;
+        width = width.toString()+"%";
 
 
 
@@ -131,7 +132,7 @@ module.exports = function (app) {
                 res.sendStatus(200);
             }
         }
-        res.sendStatus(400);
+        //res.sendStatus(400);
     }
 
     // function sortWidget(req, res) {

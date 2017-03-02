@@ -1,7 +1,7 @@
 (function () {
     angular
         .module('WebAppMaker')
-        .directive('jgaSortable', sortableDir);
+        .directive('sgnSortable', sortableDir);
 
     function sortableDir($http,$routeParams,WidgetService ) {
         vm = this;
@@ -29,14 +29,14 @@
                     //
                     // }
 
-                        // $.ajax({
-                        //     url: "/api/page/"+vm.pageId+"/widget?initial="+index1+"&finial="+index2,
-                        //     type: 'PUT',
-                        //     success: function(response) {
-                        //         //...
-                        //     }
-                        // });
-                        // return $http.put("/api/page/"+vm.pageId+"/widget?initial="+index1+"&finial="+index2);
+                    // $.ajax({
+                    //     url: "/api/page/"+vm.pageId+"/widget?initial="+index1+"&finial="+index2,
+                    //     type: 'PUT',
+                    //     success: function(response) {
+                    //         //...
+                    //     }
+                    // });
+                    // return $http.put("/api/page/"+vm.pageId+"/widget?initial="+index1+"&finial="+index2);
 
                 });
         }
