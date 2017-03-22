@@ -17,12 +17,12 @@
                         $location.url('/user/' + user._id);
 
                     } else {
-                        vm.error = 'user not found';
+                        vm.error = 'username and password does not match';
                     }
                 })
 
                 .error(function(err) {
-                    vm.error = 'user not found';
+                    vm.error = 'username and password does not match';
                 });
         }
     }

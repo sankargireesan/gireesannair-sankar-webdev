@@ -15,8 +15,8 @@
         function init() {
             PageService
                 .findPageByWebsiteId(vm.websiteId)
-                .success(function (pages) {
-                    vm.pages = pages;
+                .success(function (website) {
+                    vm.pages = website.pages;
                 });
 
             PageService

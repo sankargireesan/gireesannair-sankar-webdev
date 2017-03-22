@@ -32,7 +32,7 @@
 
                 <div class="col-10">
                     <div class="navbar-brand">
-                        New Website
+                        New Page
                     </div>
 
                 </div>
@@ -100,10 +100,19 @@
                placeholder="Page Name"/>
 
         <label for="description">Title</label>
+        <input ng-model="page.title"
+               id="title" type="text"
+               class="form-control"
+               placeholder="Page Title"/>
+
+
+        <label for="description">Description</label>
         <input ng-model="page.description"
                id="description" type="text"
                class="form-control"
-               placeholder="Page Title"/>
+               placeholder="Page description"/>
+
+
 
         <a ng-click="model.createPage(page)" class="btn btn-primary btn-block">
             Create

@@ -104,10 +104,16 @@
                placeholder="Page Name"/>
 
         <label for="title">Title</label>
-        <input ng-model="model.page.description"
+        <input ng-model="model.page.title"
                id="title" type="text"
                class="form-control"
                placeholder="Page Title"/>
+
+        <label for="description">Description</label>
+        <input ng-model="model.page.description"
+               id="description" type="text"
+               class="form-control"
+               placeholder="Page description"/>
 
 
         <a ng-click="model.updatePage(model.page)" class="btn btn-success  btn-block">

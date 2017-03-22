@@ -11,8 +11,8 @@
         function init() {
             WebsiteService
                 .findWebsitesByUser(vm.userId)
-                .success(function (websites) {
-                    vm.websites = websites;
+                .success(function (user) {
+                    vm.websites = user.websites;
                 })
         }
         init();
@@ -20,7 +20,7 @@
         function createWebsite (website) {
             WebsiteService
                 .createWebsite(vm.userId, website)
-                .success(function (website) {
+                .success(function (user) {
                     $location.url("/user/"+vm.userId+"/website");
                 })
 
