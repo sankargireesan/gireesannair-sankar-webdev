@@ -69,33 +69,33 @@ module.exports = function (app, model) {
     }
 
 
-//     function deleteWebsite(req, res) {
-//         var websiteId = req.params.websiteId;
-//         model
-//             .websiteModel
-//             .findWebsiteById(websiteId)
-//             .then(
-//                 function (website) {
-//                     console.log(website._user);
-//                     return model.userModel.findDeletedWebsite(website._user, website._id);
-//                 })
-//             .then(function (status) {
-//                     model.websiteModel.deleteAfter(website._id)
-//                         .then(
-//                             function (stat) {
-//                                 res.send(200);
-//                             }, function (error) {
-//                                 res.sendStatus(400);
-//                             });
-//                 }
-//             );
-//     }
-// };
+    // function deleteWebsite(req, res) {
+    //     var websiteId = req.params.websiteId;
+    //     model
+    //         .websiteModel
+    //         .findWebsiteById(websiteId)
+    //         .then(
+    //             function (website) {
+    //                 console.log(website._user);
+    //                 return model.userModel.findDeletedWebsite(website._user, website._id);
+    //             })
+    //         .then(function (status) {
+    //                 model.websiteModel.deleteWebsite(website._id)
+    //                     .then(
+    //                         function (stat) {
+    //                             res.send(200);
+    //                         }, function (error) {
+    //                             res.sendStatus(400);
+    //                         });
+    //             }
+    //         );
+    // }
 
 
 
-// deleteWebsite
-//
+
+//deleteWebsite
+
     function deleteWebsite(req, res){
         var websiteId = req.params.websiteId;
 

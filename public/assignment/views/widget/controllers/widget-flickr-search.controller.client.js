@@ -40,13 +40,13 @@
                                     $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget/"+vm.widgetId);
                                 },
                                 function(error){
-                                    vm.error = "Unable to select the photo";
+                                    vm.error = "Error in selecting photo";
                                 }
                             );
                     },
                     function(error)
                     {
-                        vm.error = "Widget not found";
+                        vm.error = "Error in selecting photo";
                     }
                 );
         }

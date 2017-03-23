@@ -17,7 +17,7 @@ module.exports = function(){
         icon:String,
         deletable:Boolean,
         formatted:Boolean,
-        index:Number,
+        // index:Number,
         dateCreated:{type: Date, default: Date.now}
     });
     return WidgetSchema;

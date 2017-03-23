@@ -64,7 +64,7 @@ module.exports = function () {
                         page.widgets.push(wid);
                         wid._page = page._id;
                         page.save();
-                        wid.index = page.widgets.length;
+                        // wid.index = page.widgets.length;
 
 
                         deferred.resolve(wid.save());
@@ -77,16 +77,6 @@ module.exports = function () {
         });
         return deferred.promise;
     }
-
-
-    //         model.userModel.findPageById(pageId).push(widget)
-    //         .then(
-    //             function(widgets){
-    //                 widget.index = widgets.length;
-    //                 return WidgetModel.create(widget);
-    //             }
-    //         );
-    // }
 
 
 
@@ -127,35 +117,41 @@ module.exports = function () {
 
 
 
-    function reorderWidget(pageId, start, end){
-        return model.pageModel
+
+
+
+    function reorderWidget(pageId, index1, index2) {
+        var deffered = q.defer();
+
+
+        model
+            .pageModel
             .findPageById(pageId)
-            .then(
-                function (pageObj) {
-                    WidgetModel.find({_page: pageObj}).sort({index: 1})
-                        .then(
-                            function (widgets) {
-                                widgets[start].index = widgets[end].index;
-                                widgets[start].save();
-                                if(start < end) {
-                                    for(var w in widgets) {
-                                        if(w > start && w <= end) {
-                                            widgets[w].index--;
-                                            widgets[w].save();
-                                        }
-                                    }
-                                } else {
-                                    for(var w in widgets) {
-                                        if(w >= end && w < start) {
-                                            widgets[w].index++;
-                                            widgets[w].save();
-                                        }
-                                    }
-                                }
-                                // model.pageModel.updatewidgetorder(pageObj,widgets.sort({index: 1}));
-                            }
-                        );
+            .then(function (page) {
+
+                for (var i = index1; i < index2; i++) {
+                    var temp = page.widgets[i];
+                    page.widgets[i] = page.widgets[i + 1];
+                    page.widgets[i + 1] = temp;
                 }
-            );
+
+                for (var j = index1; j > index2; j--) {
+                    var temp2 = page.widgets[i];
+                    page.widgets[j] = page.widgets[j - 1];
+                    page.widgets[j - 1] = temp2;
+                }
+               model
+                    .pageModel
+                    .update({_id: pageId}, {$set: {widgets: page.widgets}},
+                        function(err, updatedPage) {
+                            if(err){
+                                deffered.reject(err);
+                            } else{
+                                deffered.resolve();
+                            }
+
+                        });
+            });
+        return deffered.promise;
     }
 };

@@ -24,7 +24,7 @@
                         WidgetService
                             .sortWidget(vm.pageId, index1, index2)
                             .success(function () {
-                                console.log("sorted");
+                                // console.log("sorted");
                             });
                     //
                     // }

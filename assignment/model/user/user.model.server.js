@@ -61,7 +61,8 @@ module.exports = function () {
                     firstName: user.firstName,
                     lastName: user.lastName,
                     email: user.email,
-                    phone: user.phone
+                    phone: user.phone,
+                    websites:user.websites
                 }
             )
     }
@@ -73,28 +74,29 @@ module.exports = function () {
 
 
     function findDeletedWebsite(userId, websiteId) {
-        console.log(userId);
-        console.log("in user model, web id: " + websiteId);
+        // console.log(userId);
+        // console.log("in user model, web id: " + websiteId);
         var deferred = q.defer();
-        UserModel
+         UserModel
             .update(
                 {_id: userId},
                 {$pull: {websites: websiteId}})
-            .then(
-                function (user) {
-                    // if(err){
-                    //     console.log("in user model, err: " + err);
-                    //     deferred.abort(err);
-                    // }else {
-                        console.log(user);
-                        deferred.resolve(user);
-                    // }
-                },function (err) {
-                    console.log(err);
-                    send(err);
-                }
-        );
-        return deferred.promise;
+                    .then(
+                        function (user) {
+                            // if(err){
+                            //     console.log("in user model, err: " + err);
+                            //     deferred.abort(err);
+                            // }else {
+                            //     console.log(user);
+                                deferred.resolve(user);
+                            // }
+                        },function (err) {
+                            // console.log(err);
+                            send(err);
+                        }
+                );
+
+
     }
 
 

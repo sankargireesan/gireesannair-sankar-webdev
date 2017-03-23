@@ -45,7 +45,10 @@ module.exports = function () {
 
 
     function findPageById(pageId) {
-        return PageModel.findById(pageId);
+        return PageModel.findById(pageId)
+            .then(function (page) {
+                return page;
+            });
     }
 
 
@@ -93,11 +96,36 @@ module.exports = function () {
             .remove({_id : pageId})
     }
 
+    // function findAllWidgetsForPage(pageId) {
+    //     return PageModel
+    //         .findById(pageId)
+    //         .populate("widgets")
+    //         .exec();
+    // }
+
+
     function findAllWidgetsForPage(pageId) {
-        return PageModel
-            .findById(pageId)
-            .populate("widgets")
-            .exec();
+        var deffered = q.defer();
+
+
+        PageModel
+            .findById(pageId, function(err, page) {
+                model.widgetModel
+                    .find({_id: {$in: page.widgets}}, function(err, widgets) {
+                        if(err){
+                            deffered.reject(err);
+                        }
+                        else{
+                            widgets.sort(function(a, b) {
+                                return page.widgets.indexOf(a._id) - page.widgets.indexOf(b._id);
+                            });
+                            deffered.resolve(widgets);
+                        }
+                    });
+            });
+
+
+        return deffered.promise;
     }
 
 };
