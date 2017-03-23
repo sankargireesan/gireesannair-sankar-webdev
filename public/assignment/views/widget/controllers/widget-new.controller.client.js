@@ -14,12 +14,12 @@
 
         function createNewWidget(type) {
             var wid ={};
-            wid.widgetType = type;
+            wid.type = type;
             WidgetService
                 .createWidget(vm.pageId,wid)
                 .success(function (wid) {
-                   console.log(wid.widgetType);
-                    //$location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget/"+wid._id);
+                   // console.log(wid.widgetType);
+                    $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget/"+wid._id);
                 })
 
                 .error(function () {

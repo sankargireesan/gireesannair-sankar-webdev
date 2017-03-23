@@ -15,17 +15,17 @@
                     handle: '.sortable-handle',
 
 
-                    // start: function( event, ui ){
-                    //     index1 = ui.item.index();
-                    //
-                    // },
-                    // stop: function( event, ui ) {
-                    //     index2 = ui.item.index();
-                    //     WidgetService
-                    //         .sortWidget(vm.pageId, index1, index2)
-                    //         .success(function () {
-                    //             console.log("sorted");
-                    //         });
+                    start: function( event, ui ){
+                        index1 = ui.item.index();
+
+                    },
+                    stop: function( event, ui ) {
+                        index2 = ui.item.index();
+                        WidgetService
+                            .sortWidget(vm.pageId, index1, index2)
+                            .success(function () {
+                                console.log("sorted");
+                            });
                     //
                     // }
 
@@ -38,7 +38,7 @@
                     // });
                     // return $http.put("/api/page/"+vm.pageId+"/widget?initial="+index1+"&finial="+index2);
 
-                });
+                }});
         }
         return {
             link: linkFunc

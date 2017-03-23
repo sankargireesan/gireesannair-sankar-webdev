@@ -12,7 +12,8 @@ module.exports = function () {
         updatePage: updatePage,
         deletePage: deletePage,
         findAllWidgetsForPage: findAllWidgetsForPage,
-        setModel: setModel
+        setModel: setModel,
+        updatewidgetorder:updatewidgetorder
     };
     return api;
 
@@ -61,6 +62,19 @@ module.exports = function () {
                 }
             )
     }
+
+    function updatewidgetorder(pageId,widgets) {
+        return PageModel
+            .update(
+                {
+                    _id:pageId
+                },
+                {
+                    widgets: widgets
+                }
+            )
+    }
+
 
 
     function deletePage(pageId) {

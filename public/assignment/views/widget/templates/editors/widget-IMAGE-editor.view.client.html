@@ -42,12 +42,20 @@
         <input  name="websiteId" value="{{model.websiteId}}"   style="display: none"/>
 
 
+
         <label for="upload"></label>
         <button type="submit"
                 id="upload"
                 class="btn btn-primary btn-block">
             Upload Image
         </button>
+
+
+        <a href = "#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.widgetId}}/flickr"
+                class="btn btn-primary btn-block">
+            Search Image
+        </a>
+
 
     </form>
 

@@ -6,7 +6,6 @@ module.exports = function (app, model) {
     app.delete("/api/website/:websiteId", deleteWebsite);
 
 
-
     function createWebsite(req, res) {
         var website = req.body;
         var userId = req.params.userId;
@@ -39,7 +38,6 @@ module.exports = function (app, model) {
     }
 
 
-
     function findWebsiteById(req, res) {
         var websiteId = req.params.websiteId;
         model
@@ -53,14 +51,13 @@ module.exports = function (app, model) {
     }
 
 
-
     function updateWebsite(req, res) {
         var websiteId = req.params.websiteId;
         var website = req.body;
 
         model
             .websiteModel
-            .updateWebsite(websiteId,website)
+            .updateWebsite(websiteId, website)
             .then(
                 function (status) {
                     res.send(200);
@@ -72,21 +69,65 @@ module.exports = function (app, model) {
     }
 
 
+//     function deleteWebsite(req, res) {
+//         var websiteId = req.params.websiteId;
+//         model
+//             .websiteModel
+//             .findWebsiteById(websiteId)
+//             .then(
+//                 function (website) {
+//                     console.log(website._user);
+//                     return model.userModel.findDeletedWebsite(website._user, website._id);
+//                 })
+//             .then(function (status) {
+//                     model.websiteModel.deleteAfter(website._id)
+//                         .then(
+//                             function (stat) {
+//                                 res.send(200);
+//                             }, function (error) {
+//                                 res.sendStatus(400);
+//                             });
+//                 }
+//             );
+//     }
+// };
 
-    function deleteWebsite(req, res) {
+
+
+// deleteWebsite
+//
+    function deleteWebsite(req, res){
         var websiteId = req.params.websiteId;
+
         model
             .websiteModel
             .deleteWebsite(websiteId)
-            .then(
-                function (status) {
+            .then(function (status) {
                     res.send(200);
                 },
                 function (error) {
-                    res.sendStatus(400);
-                }
-            );
+                    res.sendStatus(400).send(error);
+                });
     }
 
+
+
+
+                //         .then(function (s) {
+                //
+                //
+                //                 res.send(200);
+                //             },function (error) {
+                //                 res.sendStatus(400);
+                //             }
+                //
+                //         );
+                // },
+                // function (error) {
+                //     res.sendStatus(400);
+                // }
+            // );
+    // }
+//
 
 };

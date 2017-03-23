@@ -12,7 +12,7 @@
             "findWidgetById":findWidgetById,
             "updateWidget":updateWidget,
             "deleteWidget":deleteWidget,
-            // "sortWidget": sortWidget
+            "sortWidget": sortWidget
         };
         return api;
 
@@ -39,9 +39,10 @@
         }
 
 
-        // function sortWidget(pageId, index1, index2) {
-        //     return $http.put("/api/page/"+pageId+"/widget?initial="+index1+"&final="+index2);
-        // }
+        function sortWidget(pageId, index1, index2) {
+            return $http.put("/api/page/"+pageId+"/widget?initial="+index1+"&final="+index2);
+        }
+
 
 
     }

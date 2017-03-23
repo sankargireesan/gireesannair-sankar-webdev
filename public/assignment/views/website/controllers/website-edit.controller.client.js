@@ -31,14 +31,23 @@
             if(answer) {
                 WebsiteService
                     .deleteWebsite(vm.websiteId)
-                    .success(function () {
+                    .then(function (status) {
                         $location.url("/user/" + vm.userId + "/website");
-                    })
-
-                    .error(function () {
+                    }, function (err) {
                         vm.error = 'unable to delete the website';
-
                     });
+
+
+
+
+                    // .success(function () {
+                    //     $location.url("/user/" + vm.userId + "/website");
+                    // })
+                    //
+                    // .error(function () {
+                    //     vm.error = 'unable to delete the website';
+                    //
+                    // });
             }
         }
 
