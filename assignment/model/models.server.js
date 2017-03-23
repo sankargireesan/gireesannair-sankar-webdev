@@ -2,6 +2,10 @@ module.exports = function () {
     var mongoose = require('mongoose');
 
     var connectionString = 'mongodb://localhost/wbdv-asssignment';
+    if(process.env.MONGODB_URI){
+        connectionString = process.env.MONGODB_URI;
+    }
+
     if(process.env.MLAB_USERNAME) {
         connectionString = process.env.MLAB_USERNAME + ":" +
             process.env.MLAB_PASSWORD + "@" +
