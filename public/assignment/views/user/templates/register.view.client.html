@@ -1,27 +1,58 @@
 <div class="container">
     <h1>Register</h1>
 
-    <div ng-show="model.error" class="alert alert-danger">
+    <div ng-show="model.error && register.$valid" class="alert alert-danger">
         {{model.error}}
     </div>
 
 
+    <div ng-show="register.$invalid && register.$submitted" class="alert alert-danger" >
+        Please correct the errors and submit again.
+    </div>
+
+    <form name="register" novalidate>
+
     <label for="username">Username</label>
     <input ng-model="user.username"
-           id ="username" type="text"
+           id ="username"
+           name ="username"
+           type="text"
            class="form-control"
-           placeholder="username"/>
+           placeholder="username"
+           required/>
+
+    <div ng-show="register.$submitted && register.username.$invalid" class="sgn-error">
+        Username Required
+    </div>
 
     <label for="password">Password</label>
     <input ng-model="user.password"
-           id="password" type="password"
+           id="password"
+           name="password"
+           type="password"
            class="form-control"
-           placeholder="password"/>
+           placeholder="password"
+           required/>
 
-    <label for="confirm-password">Confirm Password</label>
-    <input id="confirm-password" type="password"
+    <div ng-show="register.$submitted && register.password.$invalid" class="sgn-error">
+        Password Required
+    </div>
+
+
+        <label for="confirm-password">Confirm Password</label>
+    <input ng-model="user.password2"
+           id="confirm-password" type="password"
+           name="confirm-password"
            class="form-control"
-           placeholder="confirm password"/>
+           placeholder="confirm password"
+           required/>
+
+    <div ng-show="register.$submitted && register.confirm-password.$invalid" class="sgn-error">
+        Password Required
+    </div>
+    <div ng-show="register.$submitted  && register.password.value != register.confirm-password.value" class="sgn-error">
+        Password and Confirm Password do not match.
+    </div>
 
     <label for="first-name">First Name</label>
     <input ng-model="user.firstName"
@@ -50,10 +81,13 @@
     </div>
 
 
-    <a id="register-button" class="btn btn-primary btn-block"
-       ng-click="model.create(user)">Register</a>
+    <button type="submit" id="register-button" class="btn btn-primary btn-block"
+       ng-click="model.create(user)">Register</button>
 
     <a id="cancel-button" class="btn btn-danger  btn-block"
        href="#/login">Cancel</a>
+
+
+    </form>
 
 </div>

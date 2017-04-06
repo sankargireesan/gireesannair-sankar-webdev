@@ -1,32 +1,59 @@
 <div class="container">
     <h1>Login</h1>
 
-    <div ng-show="model.error" class="alert alert-danger">
+    <div ng-show="model.error && login.$valid" class="alert alert-danger">
         {{model.error}}
     </div>
 
-    <div ng-show="model.deleteMessage" class="alert alert-success ">
-        {{model.deleteMessage}}
+    <div ng-show="login.$invalid && login.$submitted" class="alert alert-danger" >
+        Please correct the errors and submit again.
     </div>
 
-    <label for="username">Username</label>
-    <input ng-model="user.username"
-           id="username" type="text"
-           class="form-control"
-           placeholder="username"/>
+    <form name="login" novalidate>
 
-    <label for="password">Password</label>
-    <input ng-model="user.password"
-           id="password" type="password"
-           class="form-control"
-           placeholder="password"/>
+        <label for="username">Username</label>
+        <input ng-model="user.username"
+               id="username" type="text"
+               name="username"
+               class="form-control"
+               placeholder="username"
+               required/>
 
-    <a id = "login-button"
-       class="btn btn-primary btn-block"
-       ng-click="model.login(user)">
-        Login</a>
+        <div ng-show="login.$submitted && login.username.$invalid" class="sgn-error">
+            Username Required
+        </div>
 
-    <a id="register-button" class="btn btn-success btn-block"
-       href="#/register">Register</a>
+        <label for="password">Password</label>
+        <input ng-model="user.password"
+               id="password"
+               name="password"
+               type="password"
+               class="form-control"
+               placeholder="password"
+               required/>
+        <div ng-show="login.$submitted && login.password.$invalid" class="sgn-error">
+            Password Required
+        </div>
+
+        <button id = "login-button"
+           class="btn btn-primary btn-block"
+           type="submit"
+           ng-click="model.login(user)">
+            Login</button>
+
+        <a href="/auth/google" class="btn btn-danger btn-block">
+            <span class="fa fa-google-plus fa-spin"></span>
+
+        </a>
+
+        <a href="/auth/facebook" class="btn btn-primary btn-block">
+            <span class="fa fa-facebook fa-spin"></span>
+        </a>
+
+
+        <a id="register-button" class="btn btn-success btn-block"
+           href="#/register">Register</a>
+
+    </form>
 
 </div>

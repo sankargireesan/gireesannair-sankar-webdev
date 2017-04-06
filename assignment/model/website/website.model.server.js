@@ -1,9 +1,12 @@
 module.exports = function () {
-    var q = require('q');
+
     var model = {};
     var mongoose = require("mongoose");
     var WebsiteSchema = require("./website.schema.server")();
     var WebsiteModel = mongoose.model("WebsiteModel",WebsiteSchema);
+
+    var q = require('q');
+    // mongoose.Promise = q.Promise;
 
     var api = {
         createWebsiteForUser: createWebsiteForUser,

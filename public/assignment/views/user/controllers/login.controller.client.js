@@ -3,17 +3,19 @@
         .module("WebAppMaker")
         .controller("LoginController", loginController);
 
-     function loginController(UserService, $location) {
+     function loginController(UserService, $location, $rootScope) {
         var vm = this;
         vm.login = login;
 
         function login(user) {
+            if(user.username!=null && user.password!=null){
             var promise  = UserService
-                .findUserByCredentials(user.username, user.password);
+                            .login(user);
 
             promise
                 .success(function (user){
                     if(user){
+                        $rootScope.currentUser = user;
                         $location.url('/user/' + user._id);
 
                     } else {
@@ -24,6 +26,6 @@
                 .error(function(err) {
                     vm.error = 'username and password does not match';
                 });
-        }
+        }}
     }
 })();

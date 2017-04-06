@@ -4,6 +4,10 @@ module.exports = function () {
     var UserSchema = require("./user.schema.server")();
     var UserModel = mongoose.model("UserModel", UserSchema);
 
+    var q = require('q');
+    // mongoose.Promise = q.Promise;
+
+
     var api = {
         createUser: createUser,
         findUserById: findUserById,
@@ -13,12 +17,23 @@ module.exports = function () {
         deleteUser: deleteUser,
         setModel: setModel,
         findAllWebsitesForUser: findAllWebsitesForUser,
-        findDeletedWebsite: findDeletedWebsite
+        findDeletedWebsite: findDeletedWebsite,
+        findFacebookUser: findFacebookUser,
+        findUserByGoogleId: findUserByGoogleId
     };
     return api;
 
     function setModel(_model) {
         model = _model;
+    }
+
+
+    function findFacebookUser(id) {
+        return UserModel.findOne({"facebook.id": id});
+    }
+
+    function findUserByGoogleId(id) {
+        return UserModel.findOne({"google.id": id});
     }
 
     function findAllWebsitesForUser(userId) {

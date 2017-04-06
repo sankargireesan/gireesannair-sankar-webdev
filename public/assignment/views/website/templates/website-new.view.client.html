@@ -1,4 +1,4 @@
-<nav class=" navbar-default navbar-fixed-top container-fluid">
+    <nav class=" navbar-default navbar-fixed-top container-fluid">
     <div class="row">
 
         <div class="col-xs-2 col-sm-4">
@@ -88,12 +88,23 @@
             {{model.error}}
         </div>
 
+        <div ng-show="websiteForm.$invalid && websiteForm.$submitted" class="alert alert-danger" >
+            Please correct the errors and submit again.
+        </div>
 
+        <form name="website" novalidate>
         <label for="website-name">Website Name</label>
         <input ng-model="website.name"
+               name="websitename"
                placeholder="Website Name"
                class="form-control"
-               id="website-name"/>
+               id="website-name"
+               required/>
+
+        <div ng-show="website.$submitted && website.websitename.$invalid" class="sgn-error">
+            Please enter a name for the website
+        </div>
+
 
         <label for="website-description">Website Description</label>
         <textarea ng-model="website.description"
@@ -102,9 +113,10 @@
                   id="website-description">
         </textarea>
 
-        <a ng-click="model.createWebsite(website)" class="btn btn-primary btn-block ">
+        <button type="submit" ng-click="model.createWebsite(website)" class="btn btn-primary btn-block ">
             Create
-        </a>
+        </button>
+        </form>
     </div>
 </div>
 

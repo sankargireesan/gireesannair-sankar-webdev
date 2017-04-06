@@ -18,6 +18,7 @@
         init();
 
         function createWebsite (website) {
+            if(website.name!=null){
             WebsiteService
                 .createWebsite(vm.userId, website)
                 .success(function (user) {
@@ -28,6 +29,6 @@
                     vm.error = 'Website not created';
                 });
 
-        }
+        }}
     }
 })();

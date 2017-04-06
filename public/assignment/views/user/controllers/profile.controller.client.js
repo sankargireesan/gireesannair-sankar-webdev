@@ -3,20 +3,42 @@
         .module("WebAppMaker")
         .controller("ProfileController", profileController);
 
-    function profileController($routeParams, $location, UserService) {
+    function profileController($routeParams, $location,$rootScope,UserService) {
         var vm = this;
         var userId = $routeParams['uid'];
         vm.update = update;
         vm.deleteUser = deleteUser;
+        vm.logout = logout;
+
+        var id = $rootScope.currentUser._id;
+        // console.log(id);
+        // function init() {
+        //     UserService
+        //         .findUserById(userId)
+        //         .success(function (user){
+        //             vm.user = user;
+        //         }
+        //         .error(function (err) {
+        //             UserService
+        //                 .findUser(u)
+        //                 .success(function (u) {
+        //                     vm.user = u;
+        //                 })
+        //         }));
+        // }
+        // init();
+
 
         function init() {
             UserService
-                .findUserById(userId)
-                .success(function (user){
-                    vm.user = user;
-                });
+                .findUser()
+                .success(function (u) {
+                    vm.user = u;
+                })
         }
         init();
+
+
 
         function update (newUser) {
             UserService
@@ -35,6 +57,7 @@
                 UserService
                     .deleteUser(userId)
                     .success(function () {
+                        $rootScope.currentUser = null;
                         $location.url('/');
                     })
 
@@ -44,6 +67,17 @@
                     });
             }
 
+        }
+
+
+        function logout() {
+            UserService
+                .logout()
+                .then(
+                    function(response) {
+                        $rootScope.currentUser = null;
+                            $location.url("/");
+                    });
         }
 
     }
