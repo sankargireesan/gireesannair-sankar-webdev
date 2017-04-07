@@ -25,15 +25,20 @@
           type="image/icon"
           href="images/favicon.ico">
 
-    <!--&lt;!&ndash;angular&ndash;&gt;-->
-    <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>-->
-    <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>-->
-
-
-
     <!--bootstrap-->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel = "stylesheet">
+
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <!--angular-->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+
+
+
+
 
     <!--css-->
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P
@@ -238,54 +243,6 @@
         <h4>personnel@email: sankargireesan@gmail.com</h4>
         <h4>phone No: (857)-701-6197</h4>
     </div>
-
-
-
-    <div>
-
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <div class="container">
-                <div class="carousel-caption">
-                    <h1 class="brandname">Movie Time</h1>
-                    <p>An Online Movie Store</p>
-                    <div class="input-group">
-                        <input type="text" class="form-control search-box"
-                               ng-model="homeControllerModel.movie.title"
-                               ng-keypress="homeControllerModel.myFunc($event, homeControllerModel.movie.title)"
-                               placeholder="Search for a movie by title">
-                        <a ui-sref="home.result({movieTitle: homeControllerModel.movie.title})"
-                           class="input-group-addon search-box btn-primary btn-search">
-                            <i class="glyphicon glyphicon-search"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="carousel-inner" role="listbox">
-                <div class="item" ng-class="{active:!$index}" ng-repeat="slide in homeControllerModel.slides">
-                    <img ng-src="{{slide.imageUrl}}">
-                </div>
-                <a class="left carousel-control"
-                   href=""
-                   ng-click="homeControllerModel.slide('prev')"
-                   role="button"
-                   data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                </a>
-                <a class="right carousel-control"
-                   href=""
-                   ng-click="homeControllerModel.slide('next')"
-                   role="button"
-                   data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                </a>
-            </div>
-        </div>
-
-        <div ui-view></div>
-
-    </div>
-
 
     <!--footer-->
     <nav class="navbar navbar-default container-fluid sgn-floor">
