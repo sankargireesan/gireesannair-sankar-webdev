@@ -1,0 +1,52 @@
+<div class="container-fluid bg-image3">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header t-special">
+                    NearBy Places
+                </h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 hidden-sm hidden-xs">
+                <p class="lead text-center t-special business-list-title">Categories</p>
+                <ul class="ts-sidebar-menu  active">
+                    <li class="open btn list-group-item t-button"><a href="#/search/bakeries"><h4><b>Bakeries</b></h4></a></li>
+                    <li class="open btn list-group-item t-button"><a href="#/search/coffee"><h4><b>Coffee & Tea</b></h4></a></li>
+                    <li class="open btn list-group-item t-button"><a href="#/search/breweries"><h4><b>Breweries</b></h4></a></li>
+                    <li class="open btn list-group-item t-button"><a href="#/search/icecream"><h4><b>Ice Cream & Yogurt</b></h4></a></li>
+                    <li class="open btn list-group-item t-button"><a href="#/search/cakeshop"><h4><b>Patisserie & Cake</b></h4></a></li>
+                    <li class="open btn list-group-item t-button"><a href="#/search/donuts"><h4><b>Donuts</b></h4></a></li>
+                    <li class="open btn list-group-item t-button"><a href="#/search/gelato"><h4><b>Gelato</b></h4></a></li>
+                </ul>
+            </div>
+            <div class="col-md-9">
+                <div ng-repeat="business in model.data.businesses" class="col-md-4 col-sm-4 col-xs-6 portfolio-item">
+                    <div class="panel panel-default">
+                        <a href="" ng-click="model.findRestaurantByIdYelp(business.id)">
+                            <img class="img-responsive"
+                                 width="700"
+                                 height="300"
+                                 ng-src="{{business.image_url}}" alt="">
+                        </a>
+                        <div class="panel-body">
+                            <h5>
+                                <a href="" ng-click="model.findRestaurantByIdYelp(business.id)"><h4>{{business.name}}</h4></a>
+                            </h5>
+
+                            <p>
+                                <img class="img-responsive"
+                                     ng-src="{{business.rating_img_url}}" alt="">
+                            </p>
+                            <p>Phone: {{business.display_phone}} <br>
+                                Location: {{business.location.city}},
+                                {{business.location.state_code}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+</div>

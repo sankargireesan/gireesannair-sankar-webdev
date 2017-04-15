@@ -1,0 +1,362 @@
+<div class=" t-font t-bottom-margin t-top-margin">
+
+    <!--user details-->
+    <div class="row">
+
+        <div class="col-xs-4">
+
+
+            <div class="text-center">
+                <img ng-if="!model.profileUser.url"
+                     ng-src="../../images/blank-img.jpg"
+                     class="avatar img-circle img-thumbnail"
+                     alt="avatar">
+
+                <img ng-if="model.profileUser.url"
+                     ng-src="{{model.profileUser.url}}"
+                     class="avatar img-circle img-thumbnail img-responsive"
+                     alt="avatar">
+                <h4>{{model.profileUser.firstName}} {{model.profileUser.lastName}}</h4>
+
+                <button ng-if="model.user && model.showFollow && model.user.username!=model.profileUser.username"
+                        ng-click = "model.followUser()"
+                        class="btn btn-success">
+                    Follow
+                </button>
+
+
+                <button ng-if="model.user && !model.showFollow && model.user.username!=model.profileUser.username"
+                        ng-click = "model.unFollowUser()"
+                        class="btn btn-danger">
+                    Unfollow
+                </button>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+        <div class="col-xs-8">
+
+            <div class="form-group">
+                <label class="col-lg-3 control-label business-list-title">Username:</label>
+                <div class="col-lg-8">
+                    <input ng-model="model.profileUser.username"
+                           class="form-control"
+                           id="username"
+                           type="text"
+                           disabled>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-lg-3 control-label business-list-title">First name:</label>
+                <div class="col-lg-8">
+                    <input ng-model="model.profileUser.firstName"
+                           class="form-control"
+                           id="firstName"
+                           name="firstName"
+                           disabled
+                           type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3 control-label business-list-title">Last name:</label>
+                <div class="col-lg-8">
+                    <input ng-model="model.profileUser.lastName"
+                           class="form-control"
+                           id="lastName"
+                           name="lastName"
+                           type="text"
+                           disabled>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-3 control-label business-list-title ">Email:</label>
+                <div class="col-lg-8">
+                    <input ng-model="model.profileUser.email"
+                           class="form-control"
+                           id="email"
+                           name="email"
+                           type="email"
+                           disabled>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3 control-label business-list-title ">#Phone</label>
+                <div class="col-lg-8">
+                    <input ng-model="model.profileUser.phone"
+                           class="form-control"
+                           id="phone"
+                           name="phone"
+                           type="text"
+                           disabled>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-3 control-label business-list-title">Role</label>
+                <div class="col-lg-8">
+                    <input ng-model="model.profileUser.role"
+                           class="form-control"
+                           id="Role"
+                           name="Role"
+                           type="text"
+                           disabled>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+
+    <div class="row t-title t-category t-font t-category-head row">
+        Activity
+    </div>
+
+
+    <div class="row">
+
+        <!--for crtic-->
+        <span ng-if="model.profileUser.role==='CRITIC'">
+
+            <button ng-show="!model.showInviteFlag" class="btn btn-outline-primary fa fa-lg fa-hand-o-down"
+                    ng-click="model.toggleShowInvite()">
+                Invites <span class="badge">{{model.invites.length}}</span>
+            </button>
+
+            <button ng-show="model.showInviteFlag" class="btn btn-outline-primary fa fa-lg fa-hand-o-up"
+                    ng-click="model.toggleShowInvite()">
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                Hide
+            </button>
+
+        </span>
+
+
+
+
+        <button ng-show="!model.likeFlag && model.profileUser.role !='OWNER'" class="btn btn-outline-primary fa fa-lg fa-hand-o-down"
+                ng-click="model.toggleLike()">
+            Liked <span class="badge">{{model.profileUser.restaurants.length}}</span>
+        </button>
+
+        <button ng-show=" model.likeFlag && model.profileUser.role !='OWNER'" class="btn btn-outline-primary fa fa-lg fa-hand-o-up"
+                ng-click="model.toggleLike()">
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            Hide
+        </button>
+
+        <button ng-show="!model.likeFlag && model.profileUser.role ==='OWNER'" class="btn btn-outline-primary fa fa-lg fa-hand-o-down"
+                ng-click="model.toggleLike()">
+            Claimed <span class="badge">{{model.profileUser.restaurants.length}}</span>
+        </button>
+
+        <button ng-show="model.likeFlag && model.profileUser.role ==='OWNER'" class="btn btn-outline-primary fa fa-lg fa-hand-o-up"
+                ng-click="model.toggleLike()">
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            Hide
+        </button>
+
+
+        <button ng-show="!model.followerFlag" class="btn btn-outline-primary fa fa-lg fa-hand-o-down"
+                ng-click="model.toggleFollower()">
+            Followers <span class="badge">{{model.followerUser.length}}</span>
+        </button>
+
+        <button ng-show="model.followerFlag" class="btn btn-outline-primary fa fa-lg fa-hand-o-up"
+                ng-click="model.toggleFollower()">
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            Hide
+        </button>
+
+        <button ng-show="!model.followingFlag" class="btn btn-outline-primary fa fa-lg fa-hand-o-down"
+                ng-click="model.toggleFollowing()">
+            Following <span class="badge">{{model.followingUser.length}}</span>
+        </button>
+
+        <button ng-show="model.followingFlag" class="btn btn-outline-primary fa fa-lg fa-hand-o-up"
+                ng-click="model.toggleFollowing()">
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            Hide
+        </button>
+
+
+        <!--for owner-->
+        <span ng-if="model.currentUser && model.currentUser.role==='OWNER' &&
+                     model.profileUser && model.profileUser.role == 'CRITIC'">
+
+            <button ng-show="!model.inviteFlag" class="btn btn-outline-primary fa fa-lg fa-hand-o-down"
+                    ng-click="model.toggleInvite()">
+                Invite <span class="badge">{{model.profileUser.restaurants.length}}</span>
+            </button>
+
+            <button ng-show="model.inviteFlag" class="btn btn-outline-primary fa fa-lg fa-hand-o-up"
+                    ng-click="model.toggleInvite()">
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                Hide
+            </button>
+
+        </span>
+
+    </div>
+
+
+            <!--create invite-->
+
+
+            <div ng-if="model.currentUser && model.currentUser.role == 'OWNER' &&
+                        model.currentUser.restaurants.length>0 &&
+                        model.inviteFlag &&
+                        model.profileUser && model.profileUser.role == 'CRITIC'"
+
+                 ng-repeat="restaurant in model.currentUser.restaurants">
+                {{restaurant._id}}
+                <button ng-show="!restaurant.sendInviteFlag" ng-click = "model.createInvite(restaurant)"
+                        class="btn btn-primary">
+                    Invite
+                </button>
+            </div>
+
+
+
+
+
+    <!--liked-->
+    <div ng-if="model.likeFlag">
+
+        <div ng-repeat="restaurant in model.profileUser.restaurants" class="col-xs-12 col-sm-4 col-md-3">
+            <div class="panel">
+                <a href="#/restaurant/{{restaurant._id}}">
+                    <p class="thumbnail">
+                        <img class="img-responsive"
+                             width="100%"
+                             ng-src="{{restaurant.imageUrl}}" alt="">
+                    </p>
+                </a>
+                <p class="text-center">
+                    <img class="img-responsive"
+                         ng-src="{{restaurant.ratingUrl}}" alt="">
+                </p>
+                <p class="text-center">
+                    <a href="#/restaurant/{{restaurant._id}}"><h4>{{restaurant.name}}</h4></a>
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!--follower-->
+    <div ng-if="model.followerFlag">
+
+        <div ng-repeat="userObj in model.followerUser" class="col-xs-12 col-sm-4 col-md-3">
+            <div class="panel">
+                <a href="#/user/{{userObj.username}}">
+                    <div class="thumbnail">
+                        <img ng-if="!userObj.url"
+                             ng-src="../../images/blank-img.jpg"
+                             class="img-responsive image-view"
+                             width="300px"
+                             height="300px"
+                             alt="avatar">
+
+                        <img ng-if="userObj.url"
+                             class="img-responsive image-view"
+                             width="300px"
+                             height="300px"
+                             ng-src="{{userObj.url}}" alt="">
+                    </div>
+                </a>
+                <p class="text-center">
+                    <a href="#/user/{{userObj.username}}"><h4>{{userObj.username}}</h4></a>
+
+                </p>
+                <p >
+                <h4 class="text-center">{{userObj.role}}</h4>
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!--following-->
+    <div ng-if="model.followingFlag">
+
+        <div ng-repeat="userObj in model.followingUser" class="col-xs-12 col-sm-4 col-md-3">
+            <div class="panel">
+                <a href="#/user/{{userObj.username}}">
+                    <div class="thumbnail">
+                        <img ng-if="!userObj.url"
+                             ng-src="../../images/blank-img.jpg"
+                             class="img-responsive image-view"
+                             width="300px"
+                             height="300px"
+                             alt="avatar">
+
+                        <img ng-if="userObj.url"
+                             class="img-responsive image-view"
+                             width="300px"
+                             height="300px"
+                             ng-src="{{userObj.url}}" alt="">
+                    </div>
+                </a>
+
+                <p class="text-center">
+                    <a href="#/user/{{userObj.username}}"><h4>{{userObj.username}}</h4></a>
+
+                </p>
+                <p class="text-center">
+                    <h4>{{userObj.role}}</h4>
+                </p>
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <!--list of invitations-->
+
+    <div ng-if="model.showInviteFlag && model.currentUser && model.currentUser.role == 'CRITIC'"
+         ng-repeat="invite in model.invites">
+        <div class="panel black-font">
+
+
+        {{invite.restaurant}}
+        <button ng-show="!invite.isReviewed" ng-click="model.writeReview(invite)"
+                class="btn btn-primary">
+            Write Review
+        </button>
+
+        <i ng-show="invite.isReviewed" class="fa fa-check fa-lg" aria-hidden="true"></i>
+        </div>
+    </div>
+
+</div>
+
+
