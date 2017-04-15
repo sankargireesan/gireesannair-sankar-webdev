@@ -13,7 +13,8 @@
 }
 
 .sgn-indie{
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Asar', serif;
+    /*font-family: 'Indie Flower', cursive;*/
     color: cornsilk;
 
 }
@@ -170,9 +171,12 @@ a:hover {
 }
 
 body{
-    background-image: url("../images/bbg.jpeg");
+    background-image: url("../images/bbg.jpg");
 }
 
-/*.bg-img{*/
-    /*background-image: url("../images/bgb.jpg")*/
-/*}*/
+.bg-img{
+
+    background-image: url("../images/bbg.jpg")
+}
+
+
