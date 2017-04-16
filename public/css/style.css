@@ -3,6 +3,12 @@
 }
 
 
+.division{
+    padding: 5%;
+    color: white;
+    font-family: 'Revalia', cursive;
+}
+
 .sgn-pacifico{
     font-family: 'Pacifico', cursive;
 }
@@ -12,9 +18,20 @@
 
 }
 
+.other:hover{
+
+    color: crimson;
+
+}
+
+/*.sgn-n-margin{*/
+    /*margin-top: -50px;*/
+/*}*/
+
 .sgn-indie{
-    font-family: 'Asar', serif;
+    /*font-family: 'Asar', serif;*/
     /*font-family: 'Indie Flower', cursive;*/
+    font-family: 'Revalia', cursive;
     color: cornsilk;
 
 }
@@ -44,6 +61,10 @@
     padding-bottom: 30px;
 }
 
+
+body{
+    overflow-x: hidden;
+}
 
 .sgn-no-top{
     padding-top: 0px;
@@ -172,6 +193,10 @@ a:hover {
 
 body{
     background-image: url("../images/bbg.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .bg-img{
